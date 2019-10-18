@@ -1,8 +1,16 @@
 require 'csv'
 
+class SalesEngine
+  attr_reader :path
 
+  def initialize(path)
+    @path = path
+  end
 
-sales_engine = SalesEngine.from_csv({
-  :items     => "./data/items.csv",
-  :merchants => "./data/merchants.csv",
-})
+  def self.from_csv
+    sales_engine = ({
+    :items     => "./data/items.csv",
+    :merchants => "./data/merchants.csv",
+    })
+  end
+end
