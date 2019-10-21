@@ -1,14 +1,17 @@
+require 'csv'
+#require_relative
 require_relative 'sales_engine'
 
 class MerchantCollection
   def initialize(path)
     @path = path
+    @all = Array.new
   end
 
   def all
-    @all = Array.new
-    CSV.foreach("data/animal_lovers.csv") do |row|
+    CSV.foreach(@path) do |row|
       @all << row
     end
+    @all
   end
 end

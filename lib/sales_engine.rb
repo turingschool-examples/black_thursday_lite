@@ -5,18 +5,19 @@ require_relative 'item_collection'
 # require_relative '../data/merchants.csv'
 
 class SalesEngine
-  def initialize
+  attr_reader :merchants, :items
 
-  end
-
-  def self.from_csv(data)
+  def initialize(data)
     @data = data
     @merchants = MerchantCollection.new(@data[:merchants])
     @items = ItemCollection.new(@data[:items])
-    self.new
   end
 
-  def self.merchants
+  def self.from_csv(data)
+    self.new(data)
+  end
+
+  def find_merchants
     @merchants.all
   end
 
