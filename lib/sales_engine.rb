@@ -11,8 +11,8 @@ class SalesEngine
   end
 
   def self.from_csv(data_paths)
-  items_list = ItemsCollection.create_multiple_items(data_paths[:items])
-  merchant_list = MerchantCollection.create_multiple_items(data_paths[:merchants])
+  items_list = Item.create_multiple_items(data_paths[:items])
+  merchant_list = Merchant.create_multiple_items(data_paths[:merchants])
   self.new(items_list, merchant_list)
   end
 
