@@ -14,9 +14,9 @@ class Item
   end
 
   def self.create_multiple_items(file_path)
-    CSV.foreach(file_path, headers: true) do |row|
-      @@items << Item.new(row['id'], row['name'], row['discription'],
-                         row['unit_price'], row['merchant_id'])
+    CSV.foreach(file_path, headers: true, header_converters: :symbol) do |row|
+      @@items << Item.new(row[:id], row[:name], row[:discription],
+                         row[:unit_price], row[:merchant_id])
     end
     @@items
   end
@@ -25,8 +25,20 @@ class Item
     @@items
   end
 
-  def self.where(merchant_id)
-    @@items.find_all { |item| item.merchant_id == merchant_id.to_s }
+  def self.where(key_value_pair)
+    key = key_value_pair.keys.first
+    value = key_value_pair.values.first
+    @@items.find_all do |item|
+      if key == :merchant_id
+        item.merchant_id == value.to_s
+      elsif key == :name
+        item.name == value
+      elsif key == :discription
+        item.discription == value
+      else key == :unit_price
+        item.unit_price == value.to_s
+      end
+    end
   end
 
 

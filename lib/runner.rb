@@ -12,8 +12,11 @@ sales_engine = SalesEngine.from_csv({
 merchant_collection = sales_engine.merchants
 item_collection = sales_engine.items
 
-merchant = Merchant.find(12334146)
-items = Item.where(merchant.id)
+#require "pry"; binding.pry
+
+#puts items = Item.where({merchant_id: 12334146})
+puts pencils = Item.where({name: "510+ RealPush Icon Set"})
+
 
 require "pry"; binding.pry
 
