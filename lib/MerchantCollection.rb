@@ -9,6 +9,7 @@ class MerchantCollection
       #return that merchant ID
     else
       #return nil
+    end
   end
 
 end

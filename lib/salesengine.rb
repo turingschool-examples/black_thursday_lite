@@ -1,22 +1,23 @@
 require 'csv'
+require './lib/merchantcollection'
 
-class SalesEngine(sales_engine)
+class SalesEngine
 
   def initialize(hash)
 
   end
 
-  def self.from_csv(hash = {})
-    hash[:items] => "./data/items.csv",
-    hash[:merchants] => ".data/merchants.csv"
+  def self.from_csv(hash)
+    sales_engine = SalesEngine.new(hash)
   end
 
   def items
-    item_coll = ItemCollection.new
+    # item_coll = ItemCollection.new
   end
 
   def merchants
-    merchant_coll = MerchantCollection.new
+    MerchantCollection.new
+    # merchant_coll = MerchantCollection.new
   end
 
 end

@@ -1,6 +1,7 @@
 class Merchant
 
-  def initialize(incoming_hash)
+  def initialize()
+  end
 
   def id
     #returns the integer ID of the merchant
