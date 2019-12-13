@@ -1,1 +1,4 @@
-require 'csv'
+class Itemcollection
+
+
+end
