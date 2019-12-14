@@ -23,7 +23,7 @@ class ItemCollectionTest < Minitest::Test
 
   def test_it_returns_items_with_merchant_id
 
-    assert_equal [], @item_collection.where(merchant_id)
+    assert_equal ["item_object_with_merchant_id"], @item_collection.where(merchant_id)
   end
 
 

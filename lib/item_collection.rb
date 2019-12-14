@@ -9,8 +9,9 @@ class ItemCollection
 
   def all
     items_array = []
-    i_t = CSV.foreach(@items_filepath, :headers => true) do |row|
-      items_array << Item.new(row.field("id")) #need to be able to pass in id, descr, etc...
+    CSV.foreach(@items_filepath, :headers => true) do |row|
+      items_array << Item.new(row.field("id")) #need to be able to pass in
+      #row.field("name"), row.field("description"), row.field("unit_price"), etc
     end
     items_array
 
@@ -21,7 +22,13 @@ class ItemCollection
   end
 
   def where(merchant_id)
-
+    items_with_merchant_id = []
+    CSV.foreach(@items_filepath, :headers => true) do |row|
+      if row.field("merchant_id") == merchant_id
+        items_with_merchant_id << Item.new(row.field("id"), row.field("description"), etc...)
+      end
+    end
+    items_with_merchant_id
   end
 
 end
