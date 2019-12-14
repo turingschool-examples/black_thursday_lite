@@ -17,7 +17,7 @@ class SalesEngineTest < Minitest::Test
 
   def test_it_has_information
 
-    assert_equal "./data/items.csv", @sales_engine.items
-    assert_equal "./data/merchants.csv", @sales_engine.merchants
+    assert_equal ["item_object1", "item_object2", "item_object3"], @sales_engine.items
+    assert_equal ["merchant_object1", "merchant_object2", "merchant_object3"], @sales_engine.merchants
   end
 end
