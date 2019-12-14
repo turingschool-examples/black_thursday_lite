@@ -29,5 +29,4 @@ class MerchantCollectionTest < Minitest::Test
     assert @merchant_collection.find(12334160)
   end
 
-
 end

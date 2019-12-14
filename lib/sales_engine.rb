@@ -1,4 +1,5 @@
 require './lib/item_collection'
+require './lib/merchant_collection'
 
 class SalesEngine
   attr_reader :items_filepath, :merchants_filepath
@@ -14,11 +15,12 @@ class SalesEngine
 
   def items
     item_collection = ItemCollection.new(@items_filepath)
-    #needs to be item_collection
+    item_collection.all
   end
 
   def merchants
     merchant_collection = MerchantCollection.new(@merchants_filepath)
+    merchant_collection.all
   end
 
 end
