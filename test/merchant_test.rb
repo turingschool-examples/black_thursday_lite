@@ -11,4 +11,10 @@ class MerchantTest < Minitest::Test
 
     assert_instance_of Merchant, @merchant
   end
+
+  def test_it_has_information
+
+    assert_equal 5, @merchant.id
+    assert_equal "Turing School", @merchant.name
+  end
 end
