@@ -16,14 +16,14 @@ class ItemCollectionTest < Minitest::Test
     assert_instance_of ItemCollection, @item_collection
   end
 
-  def test_it_returns_all_item_instances
+  def test_it_returns_all_item_instances #support: how to test for all that info
 
     assert_equal ["item_object1", "item_object2", "item_object3"], @item_collection.all
   end
 
   def test_it_returns_items_with_merchant_id
 
-    assert_equal ["item_object_with_merchant_id"], @item_collection.where(merchant_id)
+    assert_equal [], @item_collection.where(12)
   end
 
 
