@@ -18,9 +18,15 @@ class MerchantCollectionTest < Minitest::Test
     assert_instance_of MerchantCollection, @merchant_collection
   end
 
-  def test_it_returns_all_merchant_instances
-
+  def test_it_returns_all_merchant_instances #ask how to test for this (unskip and run)
+    skip
     assert_equal [], @merchant_collection.all
+  end
+
+  def test_it_finds_merchants_with_id
+
+    assert_equal nil, @merchant_collection.find(12)
+    assert @merchant_collection.find(12334160)
   end
 
 
