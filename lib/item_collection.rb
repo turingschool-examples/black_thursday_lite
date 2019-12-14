@@ -1,3 +1,4 @@
+require './lib/item'
 require 'csv'
 
 class ItemCollection
@@ -10,27 +11,25 @@ class ItemCollection
   def all
     items_array = []
     CSV.foreach(@items_filepath, :headers => true) do |row|
-      items_array << Item.new(row.field("id")) #need to be able to pass in
-      #row.field("name"), row.field("description"), row.field("unit_price"), etc
+      items_array << Item.new({
+        :id            => row.field("id").to_i,
+        :name          => row.field("name"),
+        :description   => row.field("description"),
+        :unit_price    => row.field("unit_price").to_i,
+        :merchant_id   => row.field("merchant_id").to_i
+        })
     end
     items_array
-
-    # map over parsed items.csv
-    # Inside parsor - create items
-    # parse csv according to id, name, descr, unit price, and merch_id
-      #return array of all items
   end
 
   def where(merchant_id)
     items_with_merchant_id = []
     CSV.foreach(@items_filepath, :headers => true) do |row|
-      if row.field("merchant_id") == merchant_id
-        items_with_merchant_id << Item.new(row.field("id"), row.field("description"), etc...)
+      if row.field("merchant_id").to_i == merchant_id
+        # items_with_merchant_id << Item.new(row.field("id"), row.field("description"), etc...)
       end
     end
     items_with_merchant_id
   end
 
 end
-
-#create item class and item test
