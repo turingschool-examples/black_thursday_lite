@@ -8,5 +8,4 @@ class Item
     @unit_price = file_info[:unit_price].to_f
     @merchant_id = file_info[:merchant_id].to_i
   end
-
 end

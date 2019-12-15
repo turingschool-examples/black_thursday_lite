@@ -1,9 +1,9 @@
 class Itemcollection
-    attr_reader :items
+  attr_reader :items
 
-    def initialize(csv_file_path)
-      @items = all(csv_file_path)
-    end
+  def initialize(csv_file_path)
+    @items = all(csv_file_path)
+  end
 
   def all(csv_file_path)
     item_array = []
