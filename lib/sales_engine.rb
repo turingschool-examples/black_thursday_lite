@@ -8,7 +8,6 @@ class SalesEngine
       @items = items
     end
 
-
     def self.from_csv(locations)
       merchant_path = locations[:merchants]
       item_path = locations[:items]
