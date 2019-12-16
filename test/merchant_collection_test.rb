@@ -4,7 +4,7 @@ require './lib/merchant_collection'
 require './lib/sales_engine'
 require 'csv'
 
-class SalesEngineTest < Minitest::Test
+class MerchantCollectionTest < Minitest::Test
 
   def test_it_exists
     merchant = MerchantCollection.new({:id => 5, :name => "Turing School"})
