@@ -31,4 +31,9 @@ class SalesEngineTest < Minitest::Test
     assert_equal 263395237, @sales_engine.items.first.id
     assert_equal "510+ RealPush Icon Set", @sales_engine.items.first.name
   end
+
+  def test_merchant_collection_returns_a_merchant_collection_object
+    merchant_collection = @sales_engine.merchant_collection
+    assert_instance_of MerchantCollection, merchant_collection
+  end
 end
