@@ -31,4 +31,15 @@ class MerchantCollectionTest < Minitest::Test
     assert_equal 4, @merchant_collection.all.length
     assert_equal "Monster Merchant", @merchant_collection.all.last.name
   end
+
+  def test_it_can_update_a_merchant
+    assert_equal "Sarah", @merchant_collection.find(3).name
+    assert_equal 3, @merchant_collection.all.length
+
+    @merchant_collection.update({id: 3, name: 'Barah'})
+
+    assert_equal "Barah", @merchant_collection.find(3).name
+    assert_nil   @merchant_collection.update({id: 5, name: 'Bichael'})
+    assert_equal 3, @merchant_collection.all.length
+  end
 end
