@@ -15,4 +15,9 @@ class MerchantCollection
     new_merchant = Merchant.new({id: new_id, name: merchant_info[:name]})
     @all << new_merchant
   end
+
+  def update(merchant_info)
+    merchant_to_update = find(merchant_info[:id])
+    merchant_to_update.name = merchant_info[:name] if merchant_to_update
+  end
 end
