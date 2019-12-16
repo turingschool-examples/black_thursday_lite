@@ -1,3 +1,5 @@
+require './lib/merchant'
+
 class MerchantCollection
   attr_reader :all
   def initialize(merchants)
@@ -6,5 +8,11 @@ class MerchantCollection
 
   def find(id)
     @all.find { |merchant| merchant.id == id }
+  end
+
+  def create(merchant_info)
+    new_id = (@all.max_by { |merchant| merchant.id }).id + 1
+    new_merchant = Merchant.new({id: new_id, name: merchant_info[:name]})
+    @all << new_merchant
   end
 end
