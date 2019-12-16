@@ -17,6 +17,7 @@ class ItemCollection
   end
 
   def where(merchant_id)
-
+    items = all
+    items.map {item| item.merchant_id == merchant_id}
   end
 end

@@ -44,4 +44,16 @@ class ItemCollectionTest < Minitest::Test
 
     assert_instance_of Array, item_collection.all
   end
+
+  def test_can_find_items_with_given_merchant_id
+    sales_engine = SalesEngine.from_csv({
+      :items     => './data/items.csv',
+      :merchants => './data/merchants.csv'
+    })
+    merchant_collection = sales_engine.merchant_collection
+    item_collection = sales_engine.item_collection
+    merchant = merchant_collection.find(34)
+
+    assert_instance_of Array, item_collection.where(merchant.id)
+  end
 end
