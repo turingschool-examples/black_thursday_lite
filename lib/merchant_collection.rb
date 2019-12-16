@@ -20,4 +20,9 @@ class MerchantCollection
     merchant_to_update = find(merchant_info[:id])
     merchant_to_update.name = merchant_info[:name] if merchant_to_update
   end
+
+  def destroy(merchant_id)
+    merchant_to_destroy = find(merchant_id)
+    @all.delete(merchant_to_destroy) if merchant_to_destroy
+  end
 end
