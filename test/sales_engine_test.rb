@@ -36,4 +36,9 @@ class SalesEngineTest < Minitest::Test
     merchant_collection = @sales_engine.merchant_collection
     assert_instance_of MerchantCollection, merchant_collection
   end
+
+  def test_item_collection_returns_an_item_collection_object
+    item_collection = @sales_engine.item_collection
+    assert_instance_of ItemCollection, item_collection
+  end
 end
