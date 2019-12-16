@@ -1,5 +1,6 @@
 require 'csv'
 require './lib/item'
+require './lib/item_collection'
 require './lib/merchant'
 require './lib/merchant_collection'
 
@@ -12,26 +13,28 @@ attr_reader :items, :merchants
   end
 
   def self.from_csv(filepaths)
-    items = CSV.read(filepaths[:items])
-    merchants = CSV.read(filepaths[:merchants])
-    items.delete_at(0)
-    merchants.delete_at(0)
-    item_hashes = items.map do |array|
+    items = CSV.read(filepaths[:items], headers: true)
+    merchants = CSV.read(filepaths[:merchants], headers: true)
+    item_objects = items.map do |row|
       Item.new({
-        id: array[0].to_i,
-        name: array[1],
-        description: array[2],
-        unit_price: array[3].to_i,
-        merchant_id: array[4].to_i
+        id: row[0].to_i,
+        name: row[1],
+        description: row[2],
+        unit_price: row[3].to_i,
+        merchant_id: row[4].to_i
       })
     end
-    merchant_hashes = merchants.map do |array|
-      Merchant.new({id: array[0].to_i, name: array[1]})
+    merchant_objects = merchants.map do |row|
+      Merchant.new({id: row[0].to_i, name: row[1]})
     end
-    SalesEngine.new(item_hashes, merchant_hashes)
+    SalesEngine.new(item_objects, merchant_objects)
   end
 
   def merchant_collection
     MerchantCollection.new(@merchants)
+  end
+
+  def item_collection
+    ItemCollection.new(@items)
   end
 end
