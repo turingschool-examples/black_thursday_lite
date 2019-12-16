@@ -25,8 +25,13 @@ class MerchantCollectionTest < Minitest::Test
 
   def test_it_finds_merchants_with_id
 
-    assert_equal nil, @merchant_collection.find(12)
+    assert_nil @merchant_collection.find(12)
     assert @merchant_collection.find(12334160)
+  end
+
+  def test_it_creates_records
+    assert_instance_of Merchant, @merchant_collection.create({name: 'Monster Merchant'})
+    require "pry"; binding.pry
   end
 
 end

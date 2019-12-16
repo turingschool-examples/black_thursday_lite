@@ -83,7 +83,7 @@ sales_engine = SalesEngine.from_csv({
 })
 
 merchant_collection = sales_engine.merchant_collection
-merchant = merchant_collection.find(34)
+merchant = merchant_collection.find(34) #got nil when I ran it
 # => <Merchant>
 merchants = merchant_collection.all
 # => [<Merchant>, <Merchant>...]

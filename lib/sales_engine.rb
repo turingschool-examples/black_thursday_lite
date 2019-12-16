@@ -23,4 +23,15 @@ class SalesEngine
     merchant_collection.all
   end
 
+  def merchant_collection
+    MerchantCollection.new(@merchants_filepath)
+  end
+
+  def item_collection
+    ItemCollection.new(@items_filepath)
+  end
+
 end
+
+#Is merchant_collection or merchants supposed to return an instance of
+#merchant collection. In the iteration pattern it gives both.

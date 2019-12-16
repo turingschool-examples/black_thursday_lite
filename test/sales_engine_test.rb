@@ -21,4 +21,9 @@ class SalesEngineTest < Minitest::Test
     assert @sales_engine.items
     assert @sales_engine.merchants
   end
+
+  def test_it_creates_merchant_collection
+    
+    assert_instance_of MerchantCollection, @sales_engine.merchant_collection
+  end
 end
