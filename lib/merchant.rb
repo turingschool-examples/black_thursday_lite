@@ -2,7 +2,6 @@ class Merchant
 
   def initialize()
 
-
   end
 
   def id
