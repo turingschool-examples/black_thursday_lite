@@ -1,4 +1,3 @@
-require 'csv'
 require_relative 'merchant'
 
 class MerchantCollection
@@ -12,13 +11,9 @@ class MerchantCollection
     @merchants.shift
   end
   
-  def find(id)
+  def find(merchant_id)
     self.merchants.find do |merchant|
       merchant.id.to_i == id
     end
-  end
-  
-  def all
-    @merchants
   end
 end
