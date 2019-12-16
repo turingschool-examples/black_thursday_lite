@@ -148,7 +148,7 @@ Up to this point, we have only asked for information, but in the real world, we 
 
 ### Increasing Our Search Capabilities
 
-Now that you can search for a merchant by id, and search for items by merchant id, let's change our Item's `where` method to satisfy the following interaction pattern:
+Now that you can search for a merchant by id, and search for items by merchant id, let's change our ItemCollection's `where` method to satisfy the following interaction pattern:
 
 ```ruby
 sales_engine = SalesEngine.from_csv({
