@@ -41,5 +41,6 @@ class ItemCollectionTest < Minitest::Test
   def test_it_returns_all_items_of_a_merchant_id
     assert_equal [@item1, @item2], @item_collection.where(2)
     assert_equal [@item3], @item_collection.where(45)
+    assert_nil @item_collection.where(90)
   end
 end
