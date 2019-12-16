@@ -1,6 +1,8 @@
 require 'minitest/autorun'
 require 'minitest/pride'
-require './lib/merchant'
+require './lib/merchant_collection'
+require './lib/sales_engine'
+require 'csv'
 
 class SalesEngineTest < Minitest::Test
 
@@ -18,6 +20,12 @@ class SalesEngineTest < Minitest::Test
   end
 
   def test_can_return_all_merchant_instances
+    sales_engine = SalesEngine.from_csv({
+      :items     => './data/items.csv',
+      :merchants => './data/merchants.csv'
+    })
+    merchant_collection = sales_engine.merchant_collection
 
+    assert_instance_of Array, merchant_collection.all
   end
 end

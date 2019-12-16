@@ -2,6 +2,8 @@ require 'csv'
 
 class SalesEngine
 
+  attr_reader :item_collection, :merchant_collection
+
   def self.from_csv(data)
     items = data[:items]
     merchants = data[:merchants]
@@ -9,7 +11,7 @@ class SalesEngine
   end
 
   def initialize(items, merchants)
-    @items = items
-    @merchants = merchants
+    @item_collection = items
+    @merchant_collection = merchants
   end
 end
