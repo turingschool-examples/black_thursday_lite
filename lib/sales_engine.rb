@@ -18,4 +18,13 @@ class SalesEngine
 	def merchant_collection
 		merchant_collection = MerchantCollection.new(merchants)
 	end
+
+	def item_collection
+		item_collection = ItemCollection.new(items)
+	end
 end
+
+
+
+
+

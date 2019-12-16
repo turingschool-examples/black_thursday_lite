@@ -10,4 +10,8 @@ class MerchantCollection
                         merchant = Merchant.new(merchant)
                 end
 	end
+	
+	def find(id) 
+		all.find { |merchant| merchant.id == id}
+	end
 end
