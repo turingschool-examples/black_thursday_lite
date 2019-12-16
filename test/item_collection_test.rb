@@ -3,7 +3,7 @@ require 'minitest/pride'
 require './lib/item_collection'
 require './lib/item'
 
-class ItemTest < Minitest::Test
+class ItemCollectionTest < Minitest::Test
   def setup
     @item_collection = ItemCollection.new("./data/items.csv")
   end
