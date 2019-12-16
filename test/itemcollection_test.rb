@@ -24,5 +24,4 @@ class ItemcollectionTest < Minitest::Test
     assert_equal 1, itemcollection.where(263395237).length
     assert_equal [],  itemcollection.where(0)
   end
-
 end

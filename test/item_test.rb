@@ -34,6 +34,4 @@ class ItemTest < Minitest::Test
     assert_equal 1099, item.unit_price
     assert_equal 2, item.merchant_id
   end
-
-
 end
