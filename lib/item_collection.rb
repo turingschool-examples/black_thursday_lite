@@ -11,4 +11,12 @@ class ItemCollection
     @unit_price = data[:unit_price]
     @merchant_id = data[:merchant_id]
   end
+
+  def all
+    CSV.read("items.csv")
+  end
+
+  def where(merchant_id)
+
+  end
 end

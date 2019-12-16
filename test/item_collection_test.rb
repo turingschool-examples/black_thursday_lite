@@ -34,4 +34,14 @@ class ItemCollectionTest < Minitest::Test
     assert_equal 1099, item.unit_price
     assert_equal 2, item.merchant_id
   end
+
+  def test_can_return_array_with_all_items
+    sales_engine = SalesEngine.from_csv({
+      :items     => './data/items.csv',
+      :merchants => './data/merchants.csv'
+    })
+    item_collection = sales_engine.item_collection
+
+    assert_instance_of Array, item_collection.all
+  end
 end
