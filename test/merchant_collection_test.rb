@@ -13,4 +13,15 @@ class MerchantCollectionTest < Minitest::Test
 
     assert_instance_of MerchantCollection, merchant_collection
   end
+
+  def test_it_can_find_merchants_by_id
+    merchant_collection = MerchantCollection.new
+    sales_engine = SalesEngine.from_csv({
+      :items     => "./data/items.csv",
+      :merchants => "./data/merchants.csv",
+    })
+
+    assert_equal Merchant, merchant_collection = sales_engine.merchant_collection
+    merchant = merchant_collection.find(34)
+  end
 end

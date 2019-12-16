@@ -9,7 +9,7 @@ require './lib/merchant_collection'
 
 class MerchantTest < Minitest::Test
   def test_it_exists
-    merchant = Merchant.new
+    merchant = Merchant.new({:id => 5, :name => "Turing School"})
 
     assert_instance_of Merchant, merchant
   end
