@@ -4,7 +4,7 @@ require './lib/merchant_collection'
 
 class MerchantCollectionTest < Minitest::Test
   def setup
-    @merchant = MerchantCollection.new({:id => 5, :name => "Turing School"})
+    @merchant_collection = MerchantCollection.new({:id => 5, :name => "Turing School"})
   end
 
   def test_merchant_collection_exists
@@ -12,6 +12,7 @@ class MerchantCollectionTest < Minitest::Test
   end
 
   def test_merchant_collection_can_find_all_merchants
-    assert_equal @merchant, @merchant.find(5)
+    assert_equal nil, @merchant_collection.find(10)
+    assert_equal @merchant_collection, @merchant_collection.find(5)
   end
 end
