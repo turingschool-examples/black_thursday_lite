@@ -15,7 +15,7 @@ class SalesEngineTest < Minitest::Test
   end
   
   def test_it_returns_instance_of_MerchantCollection
-    assert_instance_of MerchantCollection, @sales_engine.merchant_collection
+    assert_instance_of Array, @sales_engine.merchant_collection
   end
   
   def test_it_returns_instance_of_ItemCollection

@@ -2,12 +2,12 @@ require_relative 'merchant_collection'
 require_relative 'item_collection'
 
 class SalesEngine
-  attr_reader :sales_data
+  attr_reader :sales_data, :merchant_collection
   
   def initialize(sales_data)
     @sales_data = sales_data
-    @items = sales_data[:items]
     @merchants = sales_data[:merchants]
+    @items = sales_data[:items]
   end
   
   def self.from_csv(sales_data)
