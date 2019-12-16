@@ -1,3 +1,6 @@
+require_relative './item'
+require 'CSV'
+
 class ItemCollection
   def initialize(item_info)
     @items = create_items(item_info)
