@@ -24,7 +24,6 @@ class MerchantCollection
   end
 
   def all
-    # print array of merchants from the original list
     @merchants
   end
 end
