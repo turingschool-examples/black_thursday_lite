@@ -10,7 +10,5 @@ item_collection = sales_engine.items
 merchant = merchant_collection.find(34)
 items = item_collection.where(34)
 
-p merchant_collection
-p item_collection
 p merchant
 p items
