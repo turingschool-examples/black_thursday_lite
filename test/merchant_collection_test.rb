@@ -42,4 +42,14 @@ class MerchantCollectionTest < Minitest::Test
     assert_nil   @merchant_collection.update({id: 5, name: 'Bichael'})
     assert_equal 3, @merchant_collection.all.length
   end
+
+  def test_it_can_destroy_merchants
+    assert @merchant_collection.find(2)
+
+    @merchant_collection.destroy(2)
+
+    assert_nil @merchant_collection.find(2)
+    assert_nil @merchant_collection.destroy(777)
+    assert_equal [@merchant1, @merchant3], @merchant_collection.all
+  end
 end
