@@ -31,7 +31,6 @@ class MerchantCollectionTest < Minitest::Test
 
   def test_it_creates_records
     assert_instance_of Merchant, @merchant_collection.create({name: 'Monster Merchant'})
-    require "pry"; binding.pry
   end
 
 end

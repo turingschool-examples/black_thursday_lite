@@ -3,17 +3,18 @@ require 'csv'
 
 class MerchantCollection
   attr_reader :merchants_filepath
+  attr_accessor :all_merchants
 
   def initialize(merchants_filepath)
     @merchants_filepath = merchants_filepath
+    @all_merchants = []
   end
 
   def all
-    all_merchants = []
     CSV.foreach(@merchants_filepath, :headers => true) do |row|
-      all_merchants << Merchant.new({:id => row.field("id").to_i, :name => row.field("name")})
+      @all_merchants << Merchant.new({:id => row.field("id").to_i, :name => row.field("name")})
     end
-    all_merchants
+    @all_merchants
   end
 
   def find(id)
@@ -44,6 +45,9 @@ class MerchantCollection
       end
     end
     merchant = Merchant.new({:id => rand_id, :name => info[:name]})
+    @all_merchants << merchant
+    merchant
+    #are we trying to store it in the csv file or the all_merchants array?
     # CSV.open(merchants_filepath, "a") do |csv|
     # end
   end
