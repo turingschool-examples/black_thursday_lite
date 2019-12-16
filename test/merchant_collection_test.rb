@@ -20,6 +20,7 @@ class SalesEngineTest < Minitest::Test
   end
 
   def test_can_return_all_merchant_instances
+    skip
     sales_engine = SalesEngine.from_csv({
       :items     => './data/items.csv',
       :merchants => './data/merchants.csv'
@@ -27,5 +28,15 @@ class SalesEngineTest < Minitest::Test
     merchant_collection = sales_engine.merchant_collection
 
     assert_instance_of Array, merchant_collection.all
+  end
+
+  def test_can_find_by_id
+    sales_engine = SalesEngine.from_csv({
+      :items     => './data/items.csv',
+      :merchants => './data/merchants.csv'
+    })
+    merchant_collection = sales_engine.merchant_collection
+
+    assert_instance_of MerchantCollection, merchant_collection.find(34)
   end
 end
