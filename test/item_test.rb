@@ -10,7 +10,7 @@ class ItemTest < Minitest::Test
       :description => "You can use it to write things",
       :unit_price  => 1099,
       :merchant_id => 2
-      })
+    })
   end
 
   def test_it_exists
