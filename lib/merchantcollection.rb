@@ -13,6 +13,10 @@ class Merchantcollection
     merchant_array
   end
 
+  def acc_headers
+    CSV.open("./data/items.csv", &:readline)
+  end
+
   def find(id)
     @merchants.find do |merchant|
       merchant.id == id

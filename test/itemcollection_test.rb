@@ -18,10 +18,12 @@ class ItemcollectionTest < Minitest::Test
     assert_equal 1367, itemcollection.all("./data/items.csv").length
   end
 
-  def test_it_can_find_multiple_items_by_id
+  def test_it_can_find_multiple_items_by_id_where_method
     itemcollection = Itemcollection.new("./data/items.csv")
 
     assert_equal 1, itemcollection.where(263395237).length
     assert_equal [],  itemcollection.where(0)
+
+    assert_equal 3, itemcollection.where({merchant_id: 34}).length
   end
 end
