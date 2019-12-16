@@ -13,6 +13,6 @@ class SalesEngineTest < Minitest::Test
   end
 
   def test_it_exists
-    assert_equal SalesEngine, @sales_engine
+    assert_instance_of SalesEngine, @sales_engine
   end
 end
