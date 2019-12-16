@@ -1,6 +1,7 @@
 require 'csv'
 require './lib/item'
 require './lib/merchant'
+require './lib/merchant_collection'
 
 class SalesEngine
 attr_reader :items, :merchants
@@ -28,5 +29,9 @@ attr_reader :items, :merchants
       Merchant.new({id: array[0].to_i, name: array[1]})
     end
     SalesEngine.new(item_hashes, merchant_hashes)
+  end
+
+  def merchant_collection
+    MerchantCollection.new(@merchants)
   end
 end
