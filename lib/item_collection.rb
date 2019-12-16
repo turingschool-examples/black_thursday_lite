@@ -5,8 +5,16 @@ class ItemCollection
     @all = items
   end
 
-  def where(merchant_id)
-    matched_items = @all.find_all { |item| item.merchant_id == merchant_id }
+  def where(search_hash)
+    category = search_hash.first[0].to_s
+    value = search_hash.first[1]
+    if category == "name"
+      matched_items = @all.find_all { |item| item.name == value }
+    elsif category == "price"
+      matched_items = @all.find_all { |item| item.unit_price == value }
+    elsif category == "merchant_id"
+      matched_items = @all.find_all { |item| item.merchant_id == value }
+    end
     matched_items = nil if matched_items.empty?
     matched_items
   end
