@@ -1,20 +1,30 @@
+require_relative './merchant'
+require 'CSV'
+
 class MerchantCollection
-  attr_reader :id,
-              :name
+  attr_reader :merchants
 
   def initialize(merchant_info)
-    @name = merchant_info[:name]
-    @id = merchant_info[:id]
+    @merchants = create_merchants(merchant_info)
+  end
+
+  def create_merchants(merchant_info)
+    merchants_array = []
+
+    CSV.foreach(merchant_info, headers: true) do |row|
+      merchants_array.push(Merchant.new({id: row[0], name: row[1]}))
+    end
+    return merchants_array
   end
 
   def find(merchant_id)
-    # take list of merchants
-    #   merchant_info.find { |merchant| merchant_info[:id] == merchant_id }
-    #     returns nil if the ID does not exist there
-    
+    @merchants.find do |merchant| 
+      merchant.id == merchant_id
+    end
   end
 
   def all
     # print array of merchants from the original list
+    @merchants
   end
 end
