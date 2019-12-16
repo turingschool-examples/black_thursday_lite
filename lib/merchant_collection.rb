@@ -13,7 +13,6 @@ class MerchantCollection
 
   def all
     merchants = CSV.read(@merchant_path)
-    require "pry"; binding.pry
     merchant_info = {}
     merchants.each do |merchant|
       merchant_info = merchant_info.merge(id: merchant[0])

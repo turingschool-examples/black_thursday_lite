@@ -37,7 +37,6 @@ class MerchantCollectionTest < Minitest::Test
   end
 
   def test_a_merchant_can_be_updated
-    require "pry"; binding.pry
     # assert_equal 12334123,
   end
 end

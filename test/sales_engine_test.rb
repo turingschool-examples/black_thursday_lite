@@ -17,7 +17,6 @@ class SalesEngineTest < Minitest::Test
   end
 
   def test_it_has_attributes
-    require "pry"; binding.pry
     assert_equal "./data/items.csv", @sales_engine.item_path
     assert_equal "./data/merchants.csv", @sales_engine.merchant_path
   end
@@ -34,15 +33,12 @@ class SalesEngineTest < Minitest::Test
     assert_instance_of Merchant, @sales_engine.merchant_collection.all[2]
   end
 
-  def test_it_can_return_all_items
-    skip
-    assert_equal 1368, @sales_engine.items.length
+  def test_it_creates_an_itemcollection_object
+    assert_instance_of ItemCollection, @sales_engine.item_collection
   end
 
-  def test_it_can_create_an_instance_of_MerchantCollection
-    skip
-    assert_instance_of MerchantCollection, @sales_engine.merchant_collection
-
+  def test_it_has_access_to_item_objects
+    assert_instance_of Item, @sales_engine.item_collection.all[2]
   end
 
 end

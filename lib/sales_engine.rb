@@ -1,5 +1,6 @@
 require 'CSV'
 require './lib/merchant_collection'
+require './lib/item_collection'
 
 class SalesEngine
 
