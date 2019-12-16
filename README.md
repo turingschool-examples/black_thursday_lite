@@ -129,7 +129,7 @@ sales_engine = SalesEngine.from_csv({
   :merchants => "./data/merchants.csv"
 })
 
-merchant_collection = sales_engine.merchants
+merchant_collection = sales_engine.merchant_collection
 item_collection = sales_engine.item_collection
 merchant = merchant_collection.find(34)
 items = item_collection.where(merchant.id)
@@ -156,8 +156,8 @@ sales_engine = SalesEngine.from_csv({
   :merchants => "./data/merchants.csv"
 })
 
-merchant_collection = sales_engine.merchants
-item_collection = sales_engine.items
+merchant_collection = sales_engine.merchant_collection
+item_collection = sales_engine.item_collection
 all_pencils = item_collection.where({merchant_id: 34})
 # => [<Item>, <Item>, <Item>]
 all_pencils = item_collection.where({name: 'Pencil'})
