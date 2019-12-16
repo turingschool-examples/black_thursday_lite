@@ -11,8 +11,8 @@ class SalesEngineTest < Minitest::Test
       :merchants => "./data/merchants.csv",
       })
   end
-end
 
   def test_it_exists
-  assert_instance_of Salesengine, @salesengine
+    assert_instance_of Salesengine, @salesengine
   end
+end
