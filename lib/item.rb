@@ -1,5 +1,7 @@
 class Item
 
+  attr_reader :merchant_id
+
   def initialize(id, name, description, unit_price, merchant_id)
     @id = id
     @name = name

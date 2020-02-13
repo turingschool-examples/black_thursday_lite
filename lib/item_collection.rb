@@ -20,4 +20,8 @@ class ItemCollection
     @items
   end
 
+  def where(merchant_id)
+    @items.select { |item| item.merchant_id == merchant_id}
+  end
+
 end

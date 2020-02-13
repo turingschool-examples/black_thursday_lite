@@ -58,6 +58,10 @@ class SalesEngineTest < Minitest::Test
     assert_equal expected, @item_collection.all
   end
 
+  def test_it_can_return_items_by_merchant_id
+    expected = @sales_engine.item_collection.items.select { |item| item.merchant_id == 12334185}
 
+    assert_equal expected, @item_collection.where(12334185)
+  end
 
 end
