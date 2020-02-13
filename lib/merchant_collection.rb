@@ -1,3 +1,7 @@
-class MerchantCollection
+require './lib/merchant.rb'
 
-end 
+class MerchantCollection
+  def all
+    
+  end
+end

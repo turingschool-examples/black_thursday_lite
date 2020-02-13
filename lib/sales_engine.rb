@@ -1,9 +1,12 @@
+require 'csv'
+require './lib/merchant.rb'
 class SalesEngine
-  attr_reader :items,
-              :merchants
-  def initialize(sales_params)
-    @items = sales_params[:items]
-    @merchants = sales_params[:merchants]
+
+  def self.from_csv(sales_params)
+    CSV.foreach(sales_params[:merchants], headers: true, header_converters: :symbol) do |row|
+      merchant_params = {id: row[:id], name: row[:name]}
+      @merchants << Merchant.new(merchant_params)
+    end
   end
 
 
