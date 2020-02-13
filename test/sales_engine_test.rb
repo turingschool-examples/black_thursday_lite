@@ -20,4 +20,9 @@ class SalesEngineTest < Minitest::Test
     assert_equal "./data/merchants.csv", @sales_engine.merchants
   end
 
+  def test_it_can_return_an_array_of_all_items
+    skip
+    assert_equal ["./data/items.csv"], @sales_engine.item_collection
+  end
+
 end
