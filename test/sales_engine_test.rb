@@ -3,6 +3,8 @@ require 'minitest/pride'
 require './lib/sales_engine'
 require './lib/item_collection'
 require './lib/merchant_collection'
+require './lib/merchant'
+require './lib/item'
 require 'csv'
 
 class SalesEngineTest < Minitest::Test
@@ -49,6 +51,13 @@ class SalesEngineTest < Minitest::Test
 
     assert_equal expected, @merchant_collection.all
   end
+
+  def test_it_can_return_all_items
+    expected = @sales_engine.item_collection.items
+
+    assert_equal expected, @item_collection.all
+  end
+
 
 
 end
