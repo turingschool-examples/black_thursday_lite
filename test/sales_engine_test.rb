@@ -38,10 +38,16 @@ class SalesEngineTest < Minitest::Test
     assert_instance_of MerchantCollection, @merchant_collection
   end
 
-  def test_it_can_find_merchants
+  def test_it_can_find_a_specific_merchant
     expected = @sales_engine.merchant_collection.items[34]
 
     assert_equal expected, @merchant_collection.find(34)
+  end
+
+  def test_it_return_all_merchants
+    expected = @sales_engine.merchant_collection.items
+
+    assert_equal expected, @merchant_collection.all
   end
 
 

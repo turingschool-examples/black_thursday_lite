@@ -20,4 +20,8 @@ class MerchantCollection
     @items[position]
   end
 
+  def all
+    @items
+  end
+
 end
