@@ -6,5 +6,8 @@ require 'csv'
 
 class ItemCollectionTest < Minitest::Test
 
+def setup
+
+end
 
 end

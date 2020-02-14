@@ -3,16 +3,16 @@ require 'csv'
 
 class MerchantCollection
 
-  attr_reader :items
+  attr_reader :merchants
 
   def initialize(csv_path)
     @csv_path = csv_path
-    @items = []
+    @merchants = []
   end
 
   def create(csv_path = @csv_path)
     CSV.foreach(@csv_path, headers: true, header_converters: :symbol) do |row|
-      @items << Merchant.new(row[:id], row[:name])
+      @merchants << Merchant.new(row[:id], row[:name])
     end
   end
 
