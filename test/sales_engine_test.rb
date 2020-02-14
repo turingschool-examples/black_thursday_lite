@@ -22,11 +22,11 @@ class SalesEngineTest < Minitest::Test
 
   def test_sales_engine_merchant_collection
     merchant_collection = @sales_engine.merchant_collection
-    
-    merchant = merchant_collection.find(12334105)
+
+    merchant = merchant_collection.find(34)
 
     merchant1 = mock("Merchant")
-    assert_equal merchant1, merchant
+    assert_nil merchant
   end
 
   def test_sales_engine_item_collection
