@@ -26,8 +26,12 @@ class ItemCollectionTest < Minitest::Test
       :merchants => "./data/merchants.csv",
     })
 
+    merchant_collection = sales_engine.merchant_collection
     item_collection = sales_engine.item_collection
-    item = item_collection.where(263395617)
+
+    merchant = merchant_collection.find(12334185)
+
+    item = item_collection.where(merchant.id)
 
     assert_equal 263395617, item[0].id
     assert_equal 12334185, item[0].merchant_id

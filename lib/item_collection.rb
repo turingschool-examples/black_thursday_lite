@@ -8,7 +8,7 @@ class ItemCollection
   end
 
   def where(merchant_id)
-    @all.select {|merchant| merchant.id == merchant_id}
+    @all.select {|item| item.merchant_id == merchant_id}
   end
 
 end
