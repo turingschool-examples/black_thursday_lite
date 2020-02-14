@@ -12,12 +12,12 @@ class SalesEngineTest < Minitest::Test
   end
 
   def test_it_exists
-  skip
+  
     assert_instance_of SalesEngine, @sales_engine
   end
 
   def test_it_creates_merchant_objects
-    require "pry"; binding.pry
+
     assert_equal Merchant, @sales_engine.merchants[0].class
   end
 

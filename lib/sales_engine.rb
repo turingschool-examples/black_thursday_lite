@@ -7,6 +7,7 @@ require './lib/item_collection.rb'
 class SalesEngine
   attr_reader :items,
               :merchants
+
   def initialize(items, merchants)
     @items = items
     @merchants = merchants
@@ -29,6 +30,7 @@ class SalesEngine
       }
       item_collection << Item.new(items_params)
     end
+    SalesEngine.new(item_collection, merchant_collection)
   end
 
 end
