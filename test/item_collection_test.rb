@@ -24,10 +24,10 @@ end
 
 def test_it_can_return_items_by_merchant
   expected = @item_collection.items.select do |item|
-    item.merchant_id == 34
+    item.merchant_id == "12334185"
   end
 
-  assert_equal expected, @item_collection.where(34)
+  assert_equal expected, @item_collection.where(12334185)
 end
 
 end
