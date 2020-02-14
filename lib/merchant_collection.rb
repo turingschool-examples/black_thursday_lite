@@ -1,12 +1,10 @@
 require './lib/merchant.rb'
 
 class MerchantCollection
-  attr_reader :all_merchants
-  def initialize
-    @all_merchants = []
+  attr_reader :all
+
+  def initialize(merchants)
+    @all = merchants
   end
 
-  def all
-
-  end
 end

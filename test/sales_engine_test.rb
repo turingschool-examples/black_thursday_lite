@@ -23,5 +23,8 @@ class SalesEngineTest < Minitest::Test
     assert_equal Item, @sales_engine.items[0].class
   end
 
+  def test_it_can_return_array_of_all_items
+skip
+  end
 
 end
