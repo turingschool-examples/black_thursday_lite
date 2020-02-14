@@ -49,4 +49,35 @@ class MerchantCollectionTest < Minitest::Test
     assert_equal 475, merchants.size
     assert_instance_of Merchant, merchants.first
   end
+
+  def test_it_can_create_merchant
+    #create({name: 'Monster Merchant'}) - This should create a new instance of Merchant with a unique ID, and store it in our Merchant Collection.
+    sales_engine = SalesEngine.from_csv({
+      :items     => "./data/items.csv",
+      :merchants => "./data/merchants.csv",
+    })
+
+    merchant_collection = sales_engine.merchant_collection
+    merchant = merchant_collection.create({name: 'Monster Merchant'})
+
+    assert_instance_of Merchant, merchant
+    assert_equal "Monster Merchant", merchant.name
+  end
+
+  def test_it_can_update_merchant
+    sales_engine = SalesEngine.from_csv({
+      :items     => "./data/items.csv",
+      :merchants => "./data/merchants.csv",
+    })
+
+    merchant_collection = sales_engine.merchant_collection
+    merchant = merchant_collection.update({id: 12337411, name: 'New Merchant Name'})
+
+    assert_instance_of Merchant, merchant
+    assert_equal "New Merchant Name", merchant.name
+  end
+
+  def test_it_can_destroy_merchant
+    skip
+  end
 end
