@@ -1,6 +1,6 @@
 require 'minitest/autorun'
 require 'minitest/pride'
-require './lib/sales_engine.rb'
+require './lib/sales_engine'
 require './lib/item'
 
 class ItemTest < MiniTest::Test
