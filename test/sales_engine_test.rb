@@ -12,13 +12,16 @@ class SalesEngineTest < Minitest::Test
   end
 
   def test_it_exists
-  
     assert_instance_of SalesEngine, @sales_engine
   end
 
   def test_it_creates_merchant_objects
-
     assert_equal Merchant, @sales_engine.merchants[0].class
   end
+
+  def test_it_creates_item_objects
+    assert_equal Item, @sales_engine.items[0].class
+  end
+
 
 end
