@@ -15,12 +15,12 @@ class SalesEngine
 
   def self.from_csv(sales_params)
     merchant_collection =[]
-    merchants = CSV.foreach(sales_params[:merchants], headers: true, header_converters: :symbol) do |row|
+    CSV.foreach(sales_params[:merchants], headers: true, header_converters: :symbol) do |row|
       merchant_params = {id: row[:id], name: row[:name]}
       merchant_collection << Merchant.new(merchant_params)
     end
     item_collection = []
-    items = CSV.foreach(sales_params[:items], headers: true, header_converters: :symbol) do |row|
+    CSV.foreach(sales_params[:items], headers: true, header_converters: :symbol) do |row|
       items_params = {
         id: row[:id],
         name: row[:name],
