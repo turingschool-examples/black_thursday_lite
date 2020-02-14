@@ -10,4 +10,19 @@ class SalesEngine
     @merchants = csv_params[:merchants]
   end
 
+  def item_collection
+    ItemCollection.new(@items)
+  end
+
+  def merchant_collection
+    MerchantCollection.new(@merchants)
+  end
+
+  def all
+    @merchants
+  end
+
+  def find(id_param)
+  end
+
 end
