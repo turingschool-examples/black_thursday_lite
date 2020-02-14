@@ -34,13 +34,11 @@ class SalesEngine
   end
 
   def merchant_collection(merchants)
-    merchant_collection = MerchantCollection.new(merchants)
-    merchant_collection.all
+    MerchantCollection.new(merchants)
   end
 
   def item_collection(items)
-    item_collection = ItemCollection.new(items)
-    item_collection.all
+    ItemCollection.new(items)
   end
 
 end

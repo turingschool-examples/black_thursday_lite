@@ -27,17 +27,17 @@ class SalesEngineTest < Minitest::Test
   def test_it_can_return_array_of_all_merchants
     merchants = @sales_engine.merchants
     merchant_collection = @sales_engine.merchant_collection(merchants)
-    assert_instance_of Merchant, merchant_collection[0]
-    assert_instance_of Merchant, merchant_collection[-1]
-    assert_equal 475, merchant_collection.size
+    assert_instance_of Merchant, merchant_collection.all[0]
+    assert_instance_of Merchant, merchant_collection.all[-1]
+    assert_equal 475, merchant_collection.all.size
   end
 
   def test_it_can_return_array_of_all_items
     items = @sales_engine.items
     item_collection = @sales_engine.item_collection(items)
-    assert_instance_of Item, item_collection[0]
-    assert_instance_of Item, item_collection[-1]
-    assert_equal 1367, item_collection.size
+    assert_instance_of Item, item_collection.all[0]
+    assert_instance_of Item, item_collection.all[-1]
+    assert_equal 1367, item_collection.all.size
   end
 
 end
