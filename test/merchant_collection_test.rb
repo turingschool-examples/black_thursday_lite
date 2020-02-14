@@ -1,3 +1,4 @@
+
 require_relative 'test_helper.rb'
 require './lib/merchant_collection.rb'
 require './lib/merchant.rb'

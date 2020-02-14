@@ -4,11 +4,11 @@ require './lib/item_collection.rb'
 class ItemCollectionTest < Minitest::Test
 
   def setup
-    @new_instance = ItemCollection.new
+    @item_collection = ItemCollection.new
   end
 
   def test_it_exists
-    assert_instance_of ItemCollection, @new_instance
+    assert_instance_of ItemCollection, @item_collection
   end
 
 end
