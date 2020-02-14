@@ -23,8 +23,15 @@ class MerchantCollectionTest < Minitest::Test
   end
 
   def test_it_finds_specific_merchant
-    expected = @merchant_collection.merchants[34]
-    assert_equal expected, @merchant_collection.find(34)
+    expected = @merchant_collection.merchants[1]
+    assert_equal expected, @merchant_collection.find(12334112)
+  end
+
+  def test_it_creates_merchants
+    previous_max = @merchant_collection.merchants.map { |merchant| merchant.id.to_i}.max
+    new_merchant = @merchant_collection.create({name: 'Monster Merchant'})
+    assert_instance_of Merchant, new_merchant
+    assert_equal new_merchant, @merchant_collection.find(previous_max + 1)
   end
 
 end
