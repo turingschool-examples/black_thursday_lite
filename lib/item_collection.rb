@@ -1,3 +1,7 @@
 class ItemCollection
+  attr_reader :all
 
-end 
+  def initialize(items)
+    @all = items
+  end
+end
