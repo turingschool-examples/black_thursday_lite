@@ -27,4 +27,7 @@ class MerchantCollection
     new_merchant
   end
 
+  def update(arguments)
+    find(arguments[:id]).name = arguments[:name]
+  end
 end
