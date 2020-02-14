@@ -1,0 +1,4 @@
+class MerchantCollection
+
+
+end
