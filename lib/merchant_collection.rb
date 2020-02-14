@@ -30,4 +30,8 @@ class MerchantCollection
   def update(arguments)
     find(arguments[:id]).name = arguments[:name]
   end
+
+  def destroy(id)
+    @merchants.delete(find(id))
+  end
 end

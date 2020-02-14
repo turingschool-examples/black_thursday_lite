@@ -36,10 +36,17 @@ class MerchantCollectionTest < Minitest::Test
 
   def test_it_updates_merchants
     assert_equal "Candisart", @merchant_collection.find(12334112).name
-    
+
     @merchant_collection.update({id: 12334112, name: 'New Merchant Name'})
 
     assert_equal "New Merchant Name", @merchant_collection.find(12334112).name
   end
 
+  def test_it_destroys_merchants
+    assert_equal "Candisart", @merchant_collection.find(12334112).name
+
+    @merchant_collection.destroy(12334112)
+
+    assert_nil @merchant_collection.find(12334112)
+  end
 end
