@@ -22,8 +22,7 @@ class MerchantCollection
 
   def create(merchant_name)
     previous_max_id = @merchants.map { |merchant| merchant.id.to_i}.max
-    new_max_id = previous_max_id + 1
-    new_merchant = Merchant.new({:id => new_max_id.to_s, :name => merchant_name[:name]})
+    new_merchant = Merchant.new({:id => (previous_max_id + 1).to_s, :name => merchant_name[:name]})
     @merchants << new_merchant
     new_merchant
   end
