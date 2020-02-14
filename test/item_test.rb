@@ -15,7 +15,6 @@ class ItemTest < Minitest::Test
     assert_instance_of Item, item
   end
 
-
   def test_it_has_attributes
     item = Item.new({
       :id          => 1,

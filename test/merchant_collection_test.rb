@@ -38,7 +38,6 @@ class MerchantCollectionTest < Minitest::Test
   end
 
   def test_it_can_get_all_merchants
-    skip
     sales_engine = SalesEngine.from_csv({
       :items     => "./data/items.csv",
       :merchants => "./data/merchants.csv",
@@ -47,6 +46,7 @@ class MerchantCollectionTest < Minitest::Test
     merchant_collection = sales_engine.merchant_collection
     merchants = merchant_collection.all
 
-    assert_equal [], merchants
+    assert_equal 475, merchants.size
+    assert_instance_of Merchant, merchants.first
   end
 end
