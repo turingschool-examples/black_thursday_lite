@@ -1,16 +1,19 @@
 require 'csv'
 
 class Merchant_Collection
+  attr_reader :merchants
 
   def initialize
-    merchants = []
+    @merchants = []
   end
 
   def add_merchants
-  CSV.foreach('./data/merchants.csv', headers: true) do |row|
-    new_merchant = merchant.new(row)
-    merchants << new_merchant
+
+    CSV.foreach('./data/merchants.csv', headers: true) do |row|
+      @merchants << row
+    end
   end
+
 end
 
 #The MerchantCollection is responsible for holding and searching our Merchant instances. It offers the following methods:
