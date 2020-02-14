@@ -3,6 +3,7 @@ class SalesEngine
               :items
 
   def initialize(sales_data)
+    @items = ItemCollection
   end
 
   def self.from_csv(sales_raw_data)
