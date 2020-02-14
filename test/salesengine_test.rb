@@ -11,4 +11,8 @@ class SalesEngineTest < Minitest::Test
     })
   end
 
+  def test_it_can_exist
+    assert_equal SalesEngine, @sales_engine
+  end
+
 end

@@ -8,6 +8,7 @@ class SalesEngine
   def self.from_csv(csv_params)
     @items = csv_params[:items]
     @merchants = csv_params[:merchants]
+    self
   end
 
   def item_collection
