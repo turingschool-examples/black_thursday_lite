@@ -17,4 +17,8 @@ class MerchantCollectionTest < Minitest::Test
     assert_equal [@merchant], @merchant_collection.all
   end
 
+  def test_it_can_find_merchant_from_id
+    assert_equal @merchant, @merchant_collection.find(5)
+  end
+
 end
