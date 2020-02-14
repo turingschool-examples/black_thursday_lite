@@ -5,14 +5,15 @@ class ItemCollection
 
   attr_reader :items
 
-  def initialize(csv_path)
-    @csv_path = csv_path
+  def initialize(path)
     @items = []
-  end
-
-  def create(csv_path = @csv_path)
-    CSV.foreach(@csv_path, headers: true, header_converters: :symbol) do |row|
-      @items << Item.new(row[:id], row[:name], row[:description], row[:unit_price], row[:merchant_id])
+    CSV.foreach(path, headers: true, header_converters: :symbol) do |row|
+      @items << Item.new({:id => row[:id],
+                          :name => row[:name],
+                          :description => row[:description],
+                          :unit_price => row[:unit_price],
+                          :merchant_id => row[:merchant_id]
+                        })
     end
   end
 
@@ -21,7 +22,7 @@ class ItemCollection
   end
 
   def where(merchant_id)
-    @items.select { |item| item.merchant_id == merchant_id}
+    @items.select { |item| item.merchant_id == merchant_id }
   end
 
 end
