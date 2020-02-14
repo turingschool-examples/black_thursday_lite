@@ -61,4 +61,12 @@ class MerchantCollectionTest < Minitest::Test
     assert_equal "Hollipoop", merchant_collection.find(12334471).name
   end
 
+  def test_it_can_return_array_of_all_merchants
+    csv_path = "./data/merchants.csv"
+    merchant_collection = MerchantCollection.new(csv_path)
+    merchant_collection.create_merchant_collection
+
+    assert_equal @merchant, merchant_collection.all 
+  end
+
 end

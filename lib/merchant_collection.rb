@@ -24,6 +24,10 @@ class MerchantCollection
   end
 
   def find(id)
-    @merchants.find {|merchant| merchant.id == id.to_s} 
+    @merchants.find {|merchant| merchant.id == id.to_s}
+  end
+
+  def all
+    @merchant 
   end
 end
