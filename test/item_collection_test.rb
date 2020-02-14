@@ -1,6 +1,7 @@
 require_relative 'test_helper.rb'
 require './lib/item_collection.rb'
 require './lib/item.rb'
+require './lib/merchant.rb'
 
 class ItemCollectionTest < Minitest::Test
 
@@ -21,6 +22,11 @@ class ItemCollectionTest < Minitest::Test
 
   def test_it_can_return_all_known_items
     assert_equal [@item], @item_collection.all
+  end
+
+  def test_it_can_return_items_with_specified_merchant_id
+    assert_equal [@item], @item_collection.where(2)
+    assert_equal [], @item_collection.where(5)
   end
 
 end
