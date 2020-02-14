@@ -21,6 +21,7 @@ class SalesEngineTest < Minitest:: Test
   end
 
 
+
 end
 
 # CSV.foreach("./data/animal_lovers.csv", headers: true, header_converters: :symbol) do |row|
