@@ -28,4 +28,22 @@ class MerchantCollectionTest < Minitest::Test
     assert_equal @merchant4, @merchant_collection.find(9)
     assert_nil @merchant_collection.find(11)
   end
+
+  def test_it_can_create_new_merchants
+    assert_equal 4, @merchant_collection.all.length
+
+    @merchant_collection.create({:id => 4, :name => "Little Owl"})
+    assert_equal 5, @merchant_collection.all.length
+    assert_equal "Little Owl", @merchant_collection.find(4).name
+  end
+
+  def test_it_can_update_name_of_merchant
+    @merchant_collection.update({:id => 1, :name => "Little Caesar's"})
+    assert_equal "Little Caesar's", @merchant_collection.find(1).name
+  end
+
+  def test_it_can_destroy_the_merchant
+    @merchant_collection.destroy(1)
+    assert_nil @merchant_collection.find(1)
+  end
 end
