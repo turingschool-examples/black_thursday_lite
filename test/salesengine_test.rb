@@ -15,4 +15,12 @@ class SalesEngineTest < Minitest::Test
     assert_equal SalesEngine, @sales_engine
   end
 
+  def test_it_can_collect_merchants
+    assert_equal [], @sales_engine.collect_merchants
+  end
+
+  def test_it_can_collect_items
+    assert_equal [], @sales_engine.collect_items
+  end
+
 end
