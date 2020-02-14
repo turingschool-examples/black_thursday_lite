@@ -68,5 +68,6 @@ class MerchantCollectionTest < Minitest::Test
     merchant_collection.add(merchant3)
     merchant_collection.create({name: 'Apple Tech'})
     assert_equal 4, merchant_collection.all.length
+    assert_equal 'Apple Tech', merchant_collection.all.last.name
   end
 end
