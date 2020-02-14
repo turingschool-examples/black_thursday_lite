@@ -18,12 +18,17 @@ class TreeNodeTest < Minitest::Test
   end
 
   def test_it_can_add
-    @node.add(32)
 
-    assert_equal node2, @node.right.value
+    assert_equal true, @node.add(46)
+    assert_equal false, @node.right.nil?
+    assert_equal 46, @node.right.value
+    assert_instance_of TreeNode, @node.right
 
-    @node.add(16)
-
+    assert_equal true, @node.add(16)
+    assert_equal false, @node.left.nil?
+    assert_instance_of TreeNode, @node.left
     assert_equal 16, @node.left.value
+
+    assert_equal false, @node.add(32)
   end
 end
