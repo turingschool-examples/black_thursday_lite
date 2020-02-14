@@ -1,8 +1,8 @@
 class Merchant
 
-  def initialize(id, name)
-    @id = id
-    @name = name
+  def initialize(arguments)
+    @id = arguments[:id]
+    @name = arguments[:name]
   end
 
 end
