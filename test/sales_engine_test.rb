@@ -1,5 +1,6 @@
 require_relative 'test_helper.rb'
 require './lib/sales_engine.rb'
+require './lib/merchant_collection.rb'
 require 'csv'
 
 class SalesEngineTest < Minitest::Test
@@ -23,8 +24,16 @@ class SalesEngineTest < Minitest::Test
     assert_equal Item, @sales_engine.items[0].class
   end
 
+  def test_it_can_return_array_of_all_merchants
+    skip
+    merchants = @sales_engine.merchants
+    @sales_engine.merchant_collection(merchants)
+  end
+
   def test_it_can_return_array_of_all_items
-skip
+    skip
+    items = @sales_engine.items
+    @sales_engine.item_collection(items)
   end
 
 end
