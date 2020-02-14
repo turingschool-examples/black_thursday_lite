@@ -1,6 +1,10 @@
 class Item
 
-  attr_reader :merchant_id
+  attr_reader :id,
+              :name,
+              :description,
+              :unit_price,
+              :merchant_id
 
   def initialize(arguments)
     @id = arguments[:id]

@@ -1,5 +1,8 @@
 class Merchant
 
+  attr_reader :id,
+              :name
+
   def initialize(arguments)
     @id = arguments[:id]
     @name = arguments[:name]
