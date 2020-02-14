@@ -1,19 +1,17 @@
 require 'minitest/autorun'
 require 'minitest/pride'
-require './lib/sales_engine.rb'
+require './lib/sales_engine'
 require './lib/item'
 require './lib/item_collection'
 
 class ItemCollectionTest < MiniTest::Test
   def setup
-    @item = Item.new({
-      :id          => 1,
-      :name        => "Pencil",
-      :description => "You can use it to write things",
-      :unit_price  => 1099,
-      :merchant_id => 2
+    sales_engine = SalesEngine.from_csv({
+      :items     => "./data/items.csv",
+      :merchants => "./data/merchants.csv"
     })
-    @item_collection = ItemCollection.new
+
+    @item_collection = sales_engine.item_collection
   end
 
   def test_it_exists
