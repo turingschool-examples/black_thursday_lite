@@ -7,12 +7,22 @@ require "./lib/merchant_collection"
 class MerchantCollectionTest < Minitest::Test
 
   def setup
-    @merchant_collection = MerchantCollection.new
+    @merchant_list = MerchantCollection.new([])
+    @merchant1 = Merchant.new({:id => 5, :name => "Turing School"})
+    @merchant2 = Merchant.new({:id => 7, :name => "Starbucks"})
+    @merchant3 = Merchant.new({:id => 9, :name => "Taco Bell"})
+    @merchant4 = Merchant.new({:id => 11, :name => "Hobby Lobby"})
+    @merchant_list = [@merchant1, @merchant2, @merchant3, @merchant4]
+
   end
 
   def test_it_exists
-    assert_instance_of MerchantCollection, @merchant_collection
+    assert_instance_of MerchantCollection, @merchant_list
+
   end
 
+  def test_it_can_show_all_merchants
+    assert_equal [@merchant1, @merchant2, @merchant3, @merchant4], @merchant_list.all
+  end
 
 end
