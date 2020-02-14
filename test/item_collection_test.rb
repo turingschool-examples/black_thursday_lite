@@ -12,11 +12,15 @@ class ItemCollectionTest < Minitest::Test
       :unit_price  => 1099,
       :merchant_id => 2
     })
-    @item_collection = ItemCollection.new(@item)
+    @item_collection = ItemCollection.new([@item])
   end
 
   def test_it_exists
     assert_instance_of ItemCollection, @item_collection
+  end
+
+  def test_it_can_return_all_known_items
+    assert_equal [@item], @item_collection.all
   end
 
 end
