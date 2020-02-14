@@ -7,21 +7,24 @@ require 'csv'
 class MerchantCollectionTest < Minitest::Test
 
   def setup
-    @sales_engine = SalesEngine.from_csv({
-        :items => "./data/items.csv",
-        :merchants => "./data/merchants.csv",
-      })
-      @merchant_collection = MerchantCollection.new(@sales_engine.merchants)
-      @sales_engine.merchant_collection = @merchant_collection
+    @merchant_collection = MerchantCollection.new("./data/merchants.csv")
+  end
 
   def test_it_exists
     assert_instance_of MerchantCollection, @merchant_collection
   end
 
-  # def test_it_creates_merchants
-  #   assert_equal [], @merchant_collection.merchants
-  #
-  #   @merchant_collection.create
-  # end
+  def test_it_has_merchants
+    assert_equal 475, @merchant_collection.merchants.size
+  end
+
+  def test_it_returns_all_merchants
+    assert_equal 475, @merchant_collection.all.size
+  end
+
+  def test_it_finds_specific_merchant
+    expected = @merchant_collection.merchants[34]
+    assert_equal expected, @merchant_collection.find(34)
+  end
 
 end

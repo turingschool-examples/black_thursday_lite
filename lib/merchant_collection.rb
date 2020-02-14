@@ -5,23 +5,20 @@ class MerchantCollection
 
   attr_reader :merchants
 
-  def initialize(csv_path)
-    @csv_path = csv_path
+  def initialize(path)
     @merchants = []
-  end
-
-  def create(csv_path = @csv_path)
-    CSV.foreach(@csv_path, headers: true, header_converters: :symbol) do |row|
-      @merchants << Merchant.new(row[:id], row[:name])
+    CSV.foreach(path, headers: true, header_converters: :symbol) do |row|
+        @merchants << Merchant.new({:id => row[:id], :name => row[:name]})
     end
   end
 
-  def find(position)
-    @items[position]
+  def all
+    @merchants
   end
 
-  def all
-    @items
+  def find(id)
+    @merchants[id]
   end
+
 
 end
