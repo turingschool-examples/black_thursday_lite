@@ -10,7 +10,7 @@ require 'csv'
 class SalesEngineTest < Minitest::Test
 
   def setup
-    @sales_engine = SalesEngine.new({
+    @sales_engine = SalesEngine.from_csv({
         :items => "./data/items.csv",
         :merchants => "./data/merchants.csv",
       })
@@ -39,7 +39,7 @@ class SalesEngineTest < Minitest::Test
   def test_it_creates_merchant_collection
     assert_instance_of MerchantCollection, @merchant_collection
   end
-
+  
   def test_it_can_find_a_specific_merchant
     expected = @sales_engine.merchant_collection.items[34]
 
