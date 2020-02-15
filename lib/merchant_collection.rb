@@ -28,6 +28,6 @@ class MerchantCollection
   end
 
   def all
-    @merchants 
+    @merchants
   end
 end
