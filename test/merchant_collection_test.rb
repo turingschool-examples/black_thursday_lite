@@ -56,17 +56,19 @@ class MerchantCollectionTest < Minitest::Test
     csv_path = "./data/merchants.csv"
     merchant_collection = MerchantCollection.new(csv_path)
     merchant_collection.create_merchant_collection
+    merchant = merchant_collection.find(12334471)
 
-    assert_equal "12334471", merchant_collection.find(12334471).id
-    assert_equal "Hollipoop", merchant_collection.find(12334471).name
+    assert_equal "12334471", merchant.id
+    assert_equal "Hollipoop", merchant.name
   end
 
   def test_it_can_return_array_of_all_merchants
     csv_path = "./data/merchants.csv"
     merchant_collection = MerchantCollection.new(csv_path)
     merchant_collection.create_merchant_collection
+    array_of_all = merchant_collection.all
 
-    assert_equal @merchant, merchant_collection.all 
+    assert_equal merchant_collection.merchants, merchant_collection.all
   end
 
 end
