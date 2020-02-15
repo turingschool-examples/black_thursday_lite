@@ -1,3 +1,4 @@
+require "./lib/item"
 require "csv"
 class ItemCollection
   attr_reader :file_path, :items
