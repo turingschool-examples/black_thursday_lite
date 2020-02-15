@@ -22,18 +22,18 @@ class MerchantCollectionTest < Minitest::Test
   def test_it_can_create_merchant_items
     csv_path = "./data/merchants.csv"
     merchant_collection = MerchantCollection.new(csv_path)
-    input = {name:"Ryan", id:31}
+    input = {name:"Ryan", id:"31"}
 
     assert_instance_of Merchant, merchant_collection.instantiate_merchant(input)
     assert_equal "Ryan", merchant_collection.instantiate_merchant(input).name
-    assert_equal 31, merchant_collection.instantiate_merchant(input).id
+    assert_equal "31", merchant_collection.instantiate_merchant(input).id
   end
 
   def test_that_it_can_collect_merchants
     csv_path = "./data/merchants.csv"
     merchant_collection = MerchantCollection.new(csv_path)
-    input1 = {name:"Ryan", id:31}
-    input2 = {name:"Andy", id:60}
+    input1 = {name:"Ryan", id:"31"}
+    input2 = {name:"Andy", id:"60"}
     merchant1 = merchant_collection.instantiate_merchant(input1)
     merchant2 = merchant_collection.instantiate_merchant(input2)
     merchant_collection.collect_merchant(merchant1)
