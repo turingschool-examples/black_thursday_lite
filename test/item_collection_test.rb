@@ -71,4 +71,23 @@ class ItemCollectionTest < Minitest::Test
     assert_equal 1367, item_collection.items.length
   end
 
+  def test_it_can_return_array_of_all_items
+    csv_filepath = "./data/items.csv"
+    item_collection = ItemCollection.new(csv_filepath)
+    item_collection.create_item_collection
+
+    assert_equal item_collection.items, item_collection.all
+  end
+
+  def test_it_can_find_all_items_with_a_merchant_id
+    csv_filepath = "./data/items.csv"
+    item_collection = ItemCollection.new(csv_filepath)
+    item_collection.create_item_collection
+
+    assert_instance_of Item, item_collection.where("12334185").first
+    assert_instance_of Item, item_collection.where("12334185").last
+    assert_equal 6, item_collection.where("12334185").length
+    assert_equal "12334185", item_collection.where("12334185")[2].merchant_id
+  end
+
 end

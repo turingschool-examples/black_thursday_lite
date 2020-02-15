@@ -20,4 +20,14 @@ class ItemCollection
       collect_item(instantiate_item(row))
     end
   end
+
+  def all
+    @items
+  end
+
+  def where(merchant_id)
+    @items.find_all do |item|
+      item.merchant_id == merchant_id
+    end
+  end
 end
