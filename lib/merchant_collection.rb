@@ -24,10 +24,15 @@ class MerchantCollection
   end
 
   def find(id)
-    @merchants.find {|merchant| merchant.id == id.to_s}
+    @merchants.find { |merchant| merchant.id == id.to_s }
   end
 
   def all
     @merchants
   end
+
+  def latest_id
+    all.max_by{|merchant| merchant.id.to_i}.id
+  end
+
 end

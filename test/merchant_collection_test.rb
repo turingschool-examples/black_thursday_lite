@@ -71,4 +71,31 @@ class MerchantCollectionTest < Minitest::Test
     assert_equal merchant_collection.merchants, merchant_collection.all
   end
 
+  def test_it_can_find_latest_unique_identification_number
+    csv_path = "./data/merchants.csv"
+    merchant_collection = MerchantCollection.new(csv_path)
+    merchant_collection.create_merchant_collection
+
+    assert_equal"12337411", merchant_collection.latest_id
+  end
+
+  # def test_it_can_create_a_new_merchant
+  #   csv_path = "./data/merchants.csv"
+  #   merchant_collection = MerchantCollection.new(csv_path)
+  #   merchant_collection.create_merchant_collection
+  #
+  #   assert_equal 475, merchant_collection.all.length
+  #
+  #   merchant_collection.new({name: "Monster Merchant"})
+  #
+  #   assert_equal 476, merchant_collection.all.length
+  #   assert_instance_of Merchant, merchant_collection.all.last
+  #   assert_equal "Monster Merchant", merchant_collection.all.last.name
+  #
+  #   unique_id = merchant_collection.all.last.id
+  #   merchant = merchant_collection.all.last
+  #
+  #   assert_equal merchant, merchant_collection.find(unique_id)
+  # end
+
 end
