@@ -46,4 +46,9 @@ class MerchantCollection
     merchant
   end
 
+  def update(info)
+    require "pry"; binding.pry
+  end
+
+
 end

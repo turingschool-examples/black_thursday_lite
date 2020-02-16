@@ -90,7 +90,7 @@ class MerchantCollectionTest < Minitest::Test
   end
 
   def test_it_can_create_a_new_merchant
-    
+
     csv_path = "./data/merchants.csv"
     merchant_collection = MerchantCollection.new(csv_path)
     merchant_collection.create_merchant_collection
@@ -105,5 +105,15 @@ class MerchantCollectionTest < Minitest::Test
 
     assert_equal merchant, merchant_collection.find(unique_id)
   end
+
+  def test_it_can_update_the_name_of_a_merchant
+    csv_path = "./data/merchants.csv"
+    merchant_collection = MerchantCollection.new(csv_path)
+    merchant_collection.create_merchant_collection
+    merchant_collection.new({name: "Monster Merchant"})
+    merchant_collection.update({id:"12337412", name:"MoNStar Merch"})
+
+    assert_equal "MoNStar Merch", merchant_collection.find(12337412).name
+  end 
 
 end
