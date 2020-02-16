@@ -35,4 +35,15 @@ class MerchantCollection
     all.max_by{|merchant| merchant.id.to_i}.id
   end
 
+  def unique_id
+    (latest_id.to_i + 1).to_s
+  end
+
+  def new(info)
+    info[:id] = unique_id
+    merchant = instantiate_merchant(info)
+    collect_merchant(merchant)
+    merchant
+  end
+
 end
