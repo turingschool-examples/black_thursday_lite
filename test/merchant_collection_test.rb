@@ -114,6 +114,24 @@ class MerchantCollectionTest < Minitest::Test
     merchant_collection.update({id:"12337412", name:"MoNStar Merch"})
 
     assert_equal "MoNStar Merch", merchant_collection.find(12337412).name
-  end 
+  end
+
+  def test_it_can_destroy_a_merchant_object_with_given_id
+    csv_path = "./data/merchants.csv"
+    merchant_collection = MerchantCollection.new(csv_path)
+    merchant_collection.create_merchant_collection
+    merchant = merchant_collection.merchants[300]
+
+    assert_equal 475, merchant_collection.merchants.length
+    assert_equal "Braceyourselfs", merchant.name
+    assert_equal "12335701", merchant.id
+    assert_equal false, merchant_collection.merchants.last == merchant
+    assert_equal false, merchant_collection.merchants.first == merchant
+
+    merchant_collection.destroy(merchant.id)
+
+    assert_nil merchant_collection.find(merchant.id)
+    assert_equal 474, merchant_collection.merchants.length
+  end
 
 end

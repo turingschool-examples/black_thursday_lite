@@ -47,7 +47,11 @@ class MerchantCollection
   end
 
   def update(info)
-    require "pry"; binding.pry
+    find(info[:id]).name = info[:name]
+  end
+
+  def destroy(id)
+    @merchants.delete(find(id.to_i))
   end
 
 
