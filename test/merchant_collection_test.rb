@@ -23,4 +23,11 @@ class MerchantCollectionTest < Minitest::Test
     assert_equal "GoldenRayPress", @merchant_collection.find("12334135").name
   end
 
+  def test_all
+    assert_instance_of Merchant, @merchant_collection.all.first
+    assert_instance_of Merchant, @merchant_collection.all[23]
+    assert_instance_of Merchant, @merchant_collection.all[97]
+    assert_instance_of Merchant, @merchant_collection.all.last
+  end
+
 end

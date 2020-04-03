@@ -10,4 +10,8 @@ class MerchantCollection
     end
   end
 
+  def all
+    @merchants
+  end
+
 end
