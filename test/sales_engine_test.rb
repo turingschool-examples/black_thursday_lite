@@ -44,6 +44,7 @@ class SalesEngineTest < Minitest::Test
 
   def test_creates_items
     assert_instance_of Item, @sales_engine.create_items.first
+    assert_instance_of Item, @sales_engine.create_items.last
   end
 
   # test we have a merchant collection attribute
