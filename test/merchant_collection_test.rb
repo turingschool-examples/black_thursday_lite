@@ -1,5 +1,6 @@
 require 'minitest/autorun'
 require 'minitest/pride'
+require './lib/merchant'
 require './lib/sales_engine'
 require './lib/merchant_collection'
 require 'csv'
@@ -17,4 +18,6 @@ class MerchantCollectionTest < Minitest::Test
   def test_it_exists
     assert_instance_of MerchantCollection, @merchant_collection
   end
+
+
 end
