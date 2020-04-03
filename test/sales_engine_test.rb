@@ -1,6 +1,7 @@
 require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/merchant'
+require './lib/item'
 require './lib/sales_engine'
 require './lib/merchant_collection'
 require 'csv'
@@ -29,12 +30,12 @@ class SalesEngineTest < Minitest::Test
     assert_equal last_merchant_row, @sales_engine.merchants_array.last
   end
 
-  def test_it_creats_a_merchant_collectiom
-    assert_instance_of MerchantCollection, @sales_engine.merchant_collection
-  end
-
   def test_creates_merchants
     assert_instance_of Merchant, @sales_engine.create_merchants.first
+  end
+
+  def test_it_creats_a_merchant_collectiom
+    assert_instance_of MerchantCollection, @sales_engine.merchant_collection
   end
 
   def test_it_creats_a_item_collectiom
@@ -42,7 +43,7 @@ class SalesEngineTest < Minitest::Test
   end
 
   def test_creates_items
-    assert_instance_of Item, @sales_engine.item_collection
+    assert_instance_of Item, @sales_engine.create_items.first
   end
 
   # test we have a merchant collection attribute
