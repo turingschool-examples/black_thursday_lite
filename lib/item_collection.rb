@@ -8,9 +8,12 @@ class ItemCollection
     @items
   end
 
-  def where(merchant_id)
-    @items.find_all do |item|
-      item.merchant_id == merchant_id
+  def where(attributes)
+    found = []
+    attributes.each do |attribute, value|
+      found << @items.find_all{|item|  item.information[attribute] == value.to_s}
     end
+    found.flatten
   end
+  
 end
