@@ -1,7 +1,4 @@
-require "CSV"
-require 'minitest/autorun'
-require 'minitest/pride'
-require './lib/sales_engine'
+require '.lib/all_requires'
 
 class SalesEngineTest < MiniTest::Test
 
