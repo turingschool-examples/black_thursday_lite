@@ -30,7 +30,7 @@ class ItemCollectionTest < Minitest::Test
   end
 
   def test_where
-    merchant = @merchant_collection.find("12334859")
+    merchant = @merchant_collection.find(12334859)
     items = @item_collection.where(merchant.id)
     test_items = items.map{|item| item.name}
 

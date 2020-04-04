@@ -6,7 +6,7 @@ class MerchantCollection
 
   def find(id)
     @merchants.find do |merchant|
-      merchant.id == id
+      merchant.id == id.to_s
     end
   end
 

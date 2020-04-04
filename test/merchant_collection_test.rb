@@ -1,7 +1,9 @@
 require 'minitest/autorun'
 require 'minitest/pride'
+require './lib/item'
 require './lib/merchant'
 require './lib/sales_engine'
+require './lib/item_collection'
 require './lib/merchant_collection'
 require 'csv'
 
@@ -20,7 +22,7 @@ class MerchantCollectionTest < Minitest::Test
   end
 
   def test_find
-    assert_equal "GoldenRayPress", @merchant_collection.find("12334135").name
+    assert_equal "GoldenRayPress", @merchant_collection.find(12334135).name
   end
 
   def test_all
