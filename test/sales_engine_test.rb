@@ -1,13 +1,24 @@
-# sales_engine = SalesEngine.from_csv({
-#   :items     => "./data/items.csv",
-#   :merchants => "./data/merchants.csv",
-# })
-#
-# From there we can find the child instances:
+require 'minitest/autorun'
+require 'minitest/pride'
+require './lib/sales_engine'
+require './lib/merchant'
+require './lib/merchant_collection'
+require './lib/item'
+require './lib/item_collection'
 
-# item_collection returns an array of all items (This method will probably
-#   (definitely) end up referencing an instance of ItemCollection)
-#
-# merchant_collection returns an array of all merchants (This method
-#   will probably (definitely) end up referencing an instance of
-#   MerchantCollection)
+class SalesEngineTest < Minitest::Test
+
+  def test_it_exists
+    sales_engine = SalesEngine.new
+    assert_instance_of SalesEngine, sales_engine
+  end
+
+  def test_merchant_collection
+    skip
+  end
+
+  def test_item_collection
+    skip
+  end
+
+end
