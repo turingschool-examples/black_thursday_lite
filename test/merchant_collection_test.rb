@@ -32,4 +32,9 @@ class MerchantCollectionTest < Minitest::Test
     assert_instance_of Merchant, @merchant_collection.all.last
   end
 
+  def test_create
+    @merchant_collection.create({name: 'Monster Merchant'})
+    assert_equal "Monster Merchant", @merchant_collection.all.last.name
+  end
+
 end
