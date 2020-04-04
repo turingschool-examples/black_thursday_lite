@@ -2,6 +2,7 @@ require 'minitest/autorun'
 require 'minitest/pride'
 require 'csv'
 require './lib/merchant_collection'
+require './lib/sales_engine'
 
 class MerchantCollectionTest < Minitest::Test
 
@@ -21,5 +22,5 @@ class MerchantCollectionTest < Minitest::Test
   def test_it_has_attributes
     assert_equal 5, @merchant.id
     assert_equal "Turing School", @merchant.name
-  end  
+  end
 end
