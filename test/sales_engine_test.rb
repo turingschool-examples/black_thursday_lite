@@ -4,6 +4,7 @@ require './lib/merchant'
 require './lib/item'
 require './lib/sales_engine'
 require './lib/merchant_collection'
+require './lib/item_collection'
 require 'csv'
 
 
