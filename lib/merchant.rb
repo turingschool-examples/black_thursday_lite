@@ -7,5 +7,4 @@ class Merchant
     @id = init_hash[:id]
     @name = init_hash[:name]
   end
-
 end

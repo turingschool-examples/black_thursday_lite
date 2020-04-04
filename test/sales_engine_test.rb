@@ -1,4 +1,4 @@
-require '.lib/all_requires'
+require './test/all_requires'
 
 class SalesEngineTest < MiniTest::Test
 
