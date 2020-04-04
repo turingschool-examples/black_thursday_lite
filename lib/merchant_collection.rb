@@ -24,4 +24,9 @@ class MerchantCollection
     find(merchant[:id]).name = merchant[:name]
   end
 
+  def destroy(id)
+    merchant = find(id)
+    @merchants.delete(merchant)
+  end
+
 end

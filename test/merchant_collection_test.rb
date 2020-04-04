@@ -42,4 +42,9 @@ class MerchantCollectionTest < Minitest::Test
     assert_equal "New Merchant Name", @merchant_collection.find(12334135).name
   end
 
+  def test_destroy
+    @merchant_collection.destroy(12334135)
+    assert_equal false, @merchant_collection.all.any? { |merchant| merchant.id == "12334135" }
+  end
+
 end
