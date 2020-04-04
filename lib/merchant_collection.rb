@@ -5,9 +5,7 @@ class MerchantCollection
   end
 
   def find(id)
-    @merchants.find do |merchant|
-      merchant.id == id.to_s
-    end
+    @merchants.find {|merchant| merchant.id == id.to_s}
   end
 
   def all
@@ -20,6 +18,10 @@ class MerchantCollection
       new_id += 1
     end
     @merchants << Merchant.new({id: new_id, name: name[:name]})
+  end
+
+  def update(merchant)
+    find(merchant[:id]).name = merchant[:name]
   end
 
 end

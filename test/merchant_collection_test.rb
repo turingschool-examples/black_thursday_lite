@@ -37,4 +37,9 @@ class MerchantCollectionTest < Minitest::Test
     assert_equal "Monster Merchant", @merchant_collection.all.last.name
   end
 
+  def test_update
+    @merchant_collection.update({id: 12334135, name: 'New Merchant Name'})
+    assert_equal "New Merchant Name", @merchant_collection.find(12334135).name
+  end
+
 end
