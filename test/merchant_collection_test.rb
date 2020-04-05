@@ -31,6 +31,7 @@ class MerchantCollectionTest < MiniTest::Test
     @merchant_collection.create({name: "Monster Merchant"})
     assert_equal 3, @merchant_collection.all.length
     assert_equal "Monster Merchant", @merchant_collection.all.last.name
+    assert_equal 3, @merchant_collection.all.last.id
   end
 
 end

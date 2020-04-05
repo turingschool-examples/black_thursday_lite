@@ -15,8 +15,8 @@ class MerchantCollection
   end
 
   def create(new_merchant_name)
-    arg_name = new_merchant_name[:name]
+    new_name = new_merchant_name[:name]
     new_id = all.last.id + 1
-    @merchants << Merchant.new({id: new_id, name: arg_name})
+    @merchants << Merchant.new({id: new_id, name: new_name})
   end
 end
