@@ -17,11 +17,11 @@ class SalesEngineTest < Minitest::Test
   :merchants => "./data/merchants.csv",
 })
 
-    assert_equal :items, "./data/items.csv"
-    assert_equal :merchants , "./data/merchants.csv"
+    assert_equal sales_engine[:items], "./data/items.csv"
+    assert_equal sales_engine[:merchants] , "./data/merchants.csv"
   end
 
-  def test_it_has
+  def test_it_can_access_
 
   end
 
