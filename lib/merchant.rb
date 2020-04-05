@@ -2,7 +2,8 @@ require 'CSV'
 
 class Merchant
 
-  attr_reader :id, :name
+  attr_accessor :name
+  attr_reader :id
   def initialize(init_hash)
     @id = init_hash[:id]
     @name = init_hash[:name]
