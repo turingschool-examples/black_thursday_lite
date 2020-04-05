@@ -17,7 +17,7 @@ class MerchantCollectionTest < Minitest::Test
     assert_instance_of MerchantCollection, @merchant_collection
   end
 
-  def test_all_gets_all_Merchant_instances
+  def test_all_gets_all_merchants
     assert_equal 475, @merchant_collection.all.count
   end
 
