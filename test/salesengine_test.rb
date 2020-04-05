@@ -1,13 +1,16 @@
 require 'minitest/autorun'
 require 'minitest/pride'
+require "CSV"
 require './lib/salesengine'
-require './lib/merchants'
-require './lib/items'
+
 
 class SalesEngineTest < Minitest::Test
 
   def test_it_exists
-    salesengine = SalesEngine.new
-    assert_instance_of SalesEngine, salesengine
+    sales_engine = SalesEngine.from_csv({
+      :items     => "./data/items.csv",
+      :merchants => "./data/merchants.csv",
+    })
+    assert_instance_of SalesEngine, sales_engine
   end
 end

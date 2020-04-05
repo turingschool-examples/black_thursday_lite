@@ -2,12 +2,12 @@ require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/salesengine'
 require './lib/merchants'
-require './lib/items'
+require './lib/item_collection'
 
-class ItemsTest < Minitest::Test
+class ItemCollectionTest < Minitest::Test
 
   def test_it_exists
-    items = Items.new
-    assert_instance_of Items, items
+    items = ItemCollection.new
+    assert_instance_of ItemCollection, items
   end
 end
