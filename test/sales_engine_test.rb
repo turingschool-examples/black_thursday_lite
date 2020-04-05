@@ -14,7 +14,8 @@ class SalesEngineTest < Minitest::Test
   end
 
   def test_merchant_collection
-    skip
+    merchant_collection = MerchantCollection.new
+    assert_equal [], merchant_collection.merchant_collection
   end
 
   def test_item_collection

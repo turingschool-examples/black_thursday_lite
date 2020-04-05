@@ -19,5 +19,5 @@ class MerchantCollection
     def find(id)
       all.find{|merch| merch.id.to_i == id}
     end
-    
+
 end
