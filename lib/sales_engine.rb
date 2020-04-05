@@ -14,16 +14,6 @@ class SalesEngine
     self.new(items_argument, merchants_argument)
   end
 
-  def self.merchant_collection(merchant_data)
-    merchants_array = []
-    CSV.foreach(merchant_data, headers: true, header_converters: :symbol) do |row|
-      id = row[:id].to_i
-      name = row[:name]
-      merchants_array << Merchant.new({id: id, name: name})
-    end
-    merchants_array
-  end
-
   def self.item_collection(item_data)
     items_array = []
     CSV.foreach(item_data, headers: true, header_converters: :symbol) do |row|
@@ -39,5 +29,15 @@ class SalesEngine
                                merchant_id: merchant_id})
     end
     items_array
+  end
+
+  def self.merchant_collection(merchant_data)
+    merchants_array = []
+    CSV.foreach(merchant_data, headers: true, header_converters: :symbol) do |row|
+      id = row[:id].to_i
+      name = row[:name]
+      merchants_array << Merchant.new({id: id, name: name})
+    end
+    merchants_array
   end
 end
