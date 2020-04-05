@@ -6,6 +6,5 @@ class ItemCollection
 
   def where(merchant_id)
     @all.find {|item| item.merchant_id == merchant_id}
-    require "pry"; binding.pry
   end
 end
