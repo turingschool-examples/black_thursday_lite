@@ -11,17 +11,17 @@ class SalesEngine
   end
 
   def self.from_csv(data)
-    merchants_data = data[:merchants]
-    items_data = data[:items]
-    self.new(merchants_data, items_data)
+    merchants_array = data[:merchants]
+    items_array = data[:items]
+    self.new(merchants_array, items_array)
   end
 
   def create_merchants
     merchant_instances = []
     CSV.foreach(@merchants_array, headers: true, header_converters: :symbol) do |row|
-      id = row[:id]
-      name = row[:name]
-      merchant_instances << Merchant.new({id: id, name: name})
+      information = {}
+      row.each{ |attributes| information[attributes[0]] = attributes[1] }
+      merchant_instances << Merchant.new(information)
     end
     merchant_instances
   end
@@ -29,12 +29,9 @@ class SalesEngine
   def create_items
     item_instances = []
     CSV.foreach(@items_array, headers: true, header_converters: :symbol) do |row|
-      id = row[:id]
-      name = row[:name]
-      description = row[:description]
-      unit_price = row[:unit_price]
-      merchant_id = row[:merchant_id]
-      item_instances << Item.new({id: id, name: name, description: description, unit_price: unit_price, merchant_id: merchant_id})
+      information = {}
+      row.each{ |attributes| information[attributes[0]] = attributes[1] }
+      item_instances << Item.new(information)
     end
     item_instances
   end
