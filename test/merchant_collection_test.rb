@@ -28,9 +28,9 @@ class MerchantCollectionTest < MiniTest::Test
 
   def test_can_create_new_merchant_and_add_to_merchants_collection
 
-    @merchant_collection.create({name: "Monster Merchant"})
+    @merchant_collection.create({name: "Merchant 3"})
     assert_equal 3, @merchant_collection.all.length
-    assert_equal "Monster Merchant", @merchant_collection.all.last.name
+    assert_equal "Merchant 3", @merchant_collection.all.last.name
     assert_equal 3, @merchant_collection.all.last.id
   end
 
