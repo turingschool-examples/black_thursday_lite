@@ -7,9 +7,9 @@ class Item
 
   def initialize(item_params)
     @id = item_params[:id]
-    @name = item_param[:name]
-    @description = item_param[:description]
-    @unit_price = item_param[:unit_price]
-    @merchant_id = item_param[:merchant_id]
+    @name = item_params[:name]
+    @description = item_params[:description]
+    @unit_price = item_params[:unit_price]
+    @merchant_id = item_params[:merchant_id]
   end
 end
