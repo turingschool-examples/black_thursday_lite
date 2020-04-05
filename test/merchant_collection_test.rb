@@ -42,4 +42,11 @@ class MerchantCollectionTest < MiniTest::Test
     assert_equal "New Merchant 1", @merchant1.name
   end
 
+  def test_can_remove_merchant_by_id
+    assert_equal [@merchant1, @merchant2], @merchant_collection.all
+
+    @merchant_collection.destroy(1)
+
+    assert_equal [@merchant2], @merchant_collection.all
+  end
 end

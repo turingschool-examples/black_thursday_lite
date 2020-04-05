@@ -20,10 +20,15 @@ class MerchantCollection
     @merchants << Merchant.new({id: new_id, name: new_name})
   end
 
-  def update(updated_merchant_name)
-    id = updated_merchant_name[:id]
-    new_name = updated_merchant_name[:name]
+  def update(updated_merchant)
+    id = updated_merchant[:id]
+    new_name = updated_merchant[:name]
     merchant_needed = find(id)
     merchant_needed.name = new_name
+  end
+
+  def destroy(id)
+    new_merchants = @merchants.reject { |merchant| merchant.id == id}
+    @merchants = new_merchants
   end
 end
