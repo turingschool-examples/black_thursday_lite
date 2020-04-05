@@ -20,4 +20,10 @@ class MerchantCollectionTest < MiniTest::Test
     assert_equal [@merchant1, @merchant2], @merchant_collection.all
   end
 
+  def test_it_can_find_merchant_by_id
+
+    assert_equal @merchant1, @merchant_collection.find(1)
+    assert_equal @merchant2, @merchant_collection.find(2)
+  end
+
 end

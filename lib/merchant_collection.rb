@@ -11,7 +11,6 @@ class MerchantCollection
   end
 
   def find(id)
-    ### Returns either nil or an instance of Merchant
-    ### with matching ID.
+    all.find { |merchant| merchant.id == id}
   end
 end
