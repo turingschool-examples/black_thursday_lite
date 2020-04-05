@@ -24,6 +24,6 @@ class MerchantCollectionTest < Minitest::Test
   end
 
   def test_it_can_find_merchants_by_id
-    
+    assert_equal 'BowlsByChris', @merchant_collection.find(12334145).name
   end
 end

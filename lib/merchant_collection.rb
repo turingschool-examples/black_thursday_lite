@@ -3,4 +3,8 @@ class MerchantCollection
   def initialize(merchants)
     @all = merchants
   end
+
+  def find(id)
+    @all.find{|merchant| merchant.id == id}
+  end
 end
