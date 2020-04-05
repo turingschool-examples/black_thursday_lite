@@ -2,21 +2,31 @@ require "CSV"
 
 class SalesEngine
 
-  def initialize(init_hash)
-    @items = init_hash[:items]
-    @merchants = init_hash[:merchants]
+  attr_reader :items, :merchants
+  def initialize(items, merchants)
+    @items = items
+    @merchants = merchants
   end
 
-  def self.from_csv(data)
-
+  def self.from_csv(path_info)
+    items_argument = ItemCollection.new(item_collection(path_info[:items]))
+    merchants_argument = MerchantCollection.new(merchant_collection(path_info[:merchants]))
+    self.new(items_argument, merchants_argument)
   end
 
-  def merchant_collection
-
+  def self.merchant_collection(merchant_data)
+    merchants_array = []
+    CSV.foreach(merchant_data, headers: true, header_converters: :symbol) do |row|
+      merchants_array << Merchant.new(row)
+    end
+    merchants_array
   end
 
-  def item_collection
-
+  def self.item_collection(item_data)
+    items_array = []
+    CSV.foreach(item_data, headers: true, header_converters: :symbol) do |row|
+      items_array << Item.new(row)
+    end
+    items_array
   end
-
 end

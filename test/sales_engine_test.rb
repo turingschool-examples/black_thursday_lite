@@ -13,5 +13,4 @@ class SalesEngineTest < MiniTest::Test
 
     assert_instance_of SalesEngine, @sales_engine
   end
-
 end
