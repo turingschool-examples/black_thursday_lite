@@ -1,5 +1,7 @@
 require "minitest/autorun"
 require './lib/sales_engine'
+require './lib/merchant_collection'
+require "./lib/merchant"
 require 'pry'
 class SalesEngineTest < Minitest::Test
   def setup
@@ -17,5 +19,9 @@ class SalesEngineTest < Minitest::Test
     assert_equal expected, @sales_engine.merchant_list.first
     expected = {:id => 12337411, :name => "CJsDecor"}
     assert_equal expected, @sales_engine.merchant_list.last
+  end
+
+  def test_it_gets_merchant_collection
+    assert_instance_of MerchantCollection, @sales_engine.merchant_collection
   end
 end

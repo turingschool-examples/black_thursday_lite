@@ -19,6 +19,11 @@ class SalesEngine
       merchant
     end
   end
+
+  def merchant_collection
+    all_merchants = merchant_list.map{|merchant| Merchant.new(merchant)}
+    MerchantCollection.new(all_merchants)
+  end
 end
 # sales_engine = SalesEngine.from_csv({
 #   :items     => "./data/items.csv",
