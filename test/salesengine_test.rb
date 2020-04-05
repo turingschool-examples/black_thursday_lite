@@ -7,10 +7,18 @@ require './lib/salesengine'
 class SalesEngineTest < Minitest::Test
 
   def test_it_exists
+    sales_engine = SalesEngine.new
+    assert_instance_of SalesEngine, sales_engine
+  end
+
+  def test_it_can_acces_data
     sales_engine = SalesEngine.from_csv({
       :items     => "./data/items.csv",
       :merchants => "./data/merchants.csv",
     })
-    assert_instance_of SalesEngine, sales_engine
+
+    assert_equal sales_engine[:items], "./data/items.csv"
+    assert_equal sales_engine[:merchants], "./data/merchants.csv"
   end
+
 end

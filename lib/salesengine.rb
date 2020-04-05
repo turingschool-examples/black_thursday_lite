@@ -1,11 +1,9 @@
 class SalesEngine
 
-  def initialize(csv_info)
-    @items = csv_info[:items]
-    @merchants = csv_info[:merchants]
+  def initialize
   end
 
-  def self.from_csv(csv_info)
-    @csv_info
+  def self.from_csv(csv_data)
+    @csv_data = csv_data
   end
 end
