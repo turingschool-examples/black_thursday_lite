@@ -19,4 +19,11 @@ class MerchantCollection
     new_id = all.last.id + 1
     @merchants << Merchant.new({id: new_id, name: new_name})
   end
+
+  def update(updated_merchant_name)
+    id = updated_merchant_name[:id]
+    new_name = updated_merchant_name[:name]
+    merchant_needed = find(id)
+    merchant_needed.name = new_name
+  end
 end
