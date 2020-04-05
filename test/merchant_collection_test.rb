@@ -4,10 +4,16 @@ require './lib/merchant'
 require './lib/merchant_collection'
 require 'pry'
 
-class MerchantCollection < MiniTest::Test
+class MerchantCollectionTest < MiniTest::Test
   def test_it_exists
     collection = MerchantCollection.new
 
     assert_instance_of MerchantCollection, collection
+  end
+
+  def test_it_can_return_all_merchants
+    collection = MerchantCollection.new
+
+    assert_equal [], collection.all
   end
 end
