@@ -3,6 +3,7 @@ require './test/all_requires'
 class ItemTest < MiniTest::Test
 
   def setup
+    
     @item = Item.new({
       :id          => 1,
       :name        => "Pencil",
