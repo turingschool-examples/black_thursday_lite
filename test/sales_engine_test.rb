@@ -14,6 +14,5 @@ class SalesEngineTest < Minitest::Test
     merchant_collection = sales_engine.merchant_collection
     merchant = merchant_collection.find(12334105)
     assert_equal "Shopin1901", merchant.name
-    assert_equal sales_engine.merchants, merchant_collection.all
   end
 end
