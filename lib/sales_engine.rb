@@ -6,7 +6,10 @@ class SalesEngine
     @merchants = sales_engine_parameter[:merchants]
   end
 
-  def self.from_csv
-
+  def self.from_csv(data)
+    merchants = data[:merchants]
+    items = data[:items]
+      SalesEngine.new(data)
   end
+
 end
