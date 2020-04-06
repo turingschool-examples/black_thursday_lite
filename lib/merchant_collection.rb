@@ -7,9 +7,9 @@ class MerchantCollection
     @all = all_merchants
   end
 
-  def find(id)
+  def find(merchant_id)
     @all.find do |merchant|
-      merchant.key(id)
+      merchant.id == merchant_id 
     end
   end
 end
