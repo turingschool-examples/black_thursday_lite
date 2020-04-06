@@ -36,4 +36,9 @@ class SalesEngine
       item
     end
   end
+
+  def item_collection
+    all_items = item_list.map{|item| Item.new(item)}
+    ItemCollection.new(all_items)
+  end
 end
