@@ -12,7 +12,12 @@ sales_engine = SalesEngine.from_csv({
 
 merchant_collection = sales_engine.merchants
 item_collection = sales_engine.items
+
+merchant_collection.create({name: "New Merchant"})
+merchant_collection.update(({id: 12337412, name: "Updated Merchant Name"}))
 merchant = merchant_collection.find(12334132)
 items = item_collection.where(merchant.id)
 
+p merchant_collection.all.last
+puts
 p items
