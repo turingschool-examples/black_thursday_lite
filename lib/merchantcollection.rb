@@ -6,7 +6,4 @@ class MerchantCollection
     @all = []
   end
 
-  def all
-    @all 
-  end
 end

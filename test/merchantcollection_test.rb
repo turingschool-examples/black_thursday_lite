@@ -1,9 +1,8 @@
 require 'minitest/autorun'
 require 'minitest/pride'
-require './lib/salesengine'
-require './lib/merchants'
 require './lib/merchantcollection'
-require './lib/items'
+require 'CSV'
+
 
 class MerchantCollectionTest < Minitest::Test
   def test_it_exists
@@ -15,4 +14,7 @@ class MerchantCollectionTest < Minitest::Test
     collection = MerchantCollection.new
     assert_equal [], collection.all
   end
+
+  def test
+
 end
