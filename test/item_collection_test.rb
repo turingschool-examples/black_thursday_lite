@@ -6,17 +6,22 @@ require "pry"
 
 class ItemCollectionTest < Minitest::Test
 
-  def test_it_exists
-    sales_engine = SalesEngine.from_csv({
+  def setup
+    @sales_engine = SalesEngine.from_csv({
       :items     => "./data/items.csv",
       :merchants => "./data/merchants.csv"})
-    item_collection = sales_engine.item_collection
+  end
+
+  def test_it_exists
+    item_collection = @sales_engine.item_collection
   end
 
   def test_all
+    assert_equal Array, @sales_engine.item_collection.all.class
   end
 
   def test_where
+    assert_equal [], @sales_engine.item_collection.where(101)
   end
-  
+
 end
