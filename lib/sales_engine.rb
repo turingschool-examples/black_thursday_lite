@@ -24,9 +24,16 @@ class SalesEngine
     all_merchants = merchant_list.map{|merchant| Merchant.new(merchant)}
     MerchantCollection.new(all_merchants)
   end
+
+  def item_list
+    @items.map do |row|
+      item = {}
+      item[:id] = row["id"].to_i
+      item[:name] = row["name"]
+      item[:description] = row["description"]
+      item[:unit_price] = row["unit_price"].to_i
+      item[:merchant_id] = row["merchant_id"].to_i
+      item
+    end
+  end
 end
-# sales_engine = SalesEngine.from_csv({
-#   :items     => "./data/items.csv",
-#   :merchants => "./data/merchants.csv",
-# })
-# require './lib/sales_engine'
