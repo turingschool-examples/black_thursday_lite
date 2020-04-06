@@ -5,11 +5,12 @@ class ItemCollection
   end
 
   def find(id)
-    @items.find { |item| item.merchant_id == item.id}
+    @all.find { |item| item.merchant_id == item.id}
   end
 
   def where(merchant_id)
-    @itesm.find_all do |ite|
+    @all.find_all do |item|
       item.merchant_id == merchant_id
+    end
   end
 end
