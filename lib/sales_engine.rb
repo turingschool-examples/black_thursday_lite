@@ -12,4 +12,12 @@ class SalesEngine
   def self.from_csv(files)
     new(files)
   end
+
+  def item_collection
+    ItemCollection.new
+  end
+
+  def merchant_collection
+    MerchantCollection.new
+  end
 end
