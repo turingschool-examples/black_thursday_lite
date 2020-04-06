@@ -1,11 +1,13 @@
+require './lib/item'
+
 class ItemCollection
-  attr_reader :all
 
-  def initialize(item_collection)
-    @all = item_collection
+  def self.all(item_collection)
+    item_collection.map { |item| Item.new(item)}
   end
 
-  def where(merchant_id)
-    @all.find_all{ |item| item.merchant_id == merchant_id}
+  def self.where(merchant_id)
+    self.all.find_all{ |item| item.merchant_id == merchant_id}
   end
+  
 end
