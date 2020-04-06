@@ -8,8 +8,8 @@ class ItemCollection
   end
 
   def where(merchant_id)
-    @all.find do |item|
-      item.key(merchant_id)
+    @all.find_all do |item|
+      item.merchant_id == merchant_id
     end
   end
 end
