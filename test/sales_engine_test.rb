@@ -32,9 +32,6 @@ class SalesEngineTest < Minitest::Test
     assert_equal 475, @sales_engine.merchants.length
     assert_instance_of Merchant, @sales_engine.merchants.first
   end
-  #
-  # def test_it_can_collect_merchants
-  #   assert_equal MerchantCollection, @sales_engine.merchant_collection.class
-  # end
+  
 
 end
