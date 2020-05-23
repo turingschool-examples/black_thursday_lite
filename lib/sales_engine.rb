@@ -1,24 +1,19 @@
-# This class needs to load and parse the data
-# The data is parsed into objects
+require "./lib/merchant_collection"
+require "./lib/item_collection"
 
 class SalesEngine
 
-  def items
-    CSV.foreach("./data/items.csv", headers: true) do |row|
-      # make each row into a CSV object
-      # like a zipped up header + values
-    end
+  def self.from_csv(sales_information)
+    @sales_information = sales_information
+    self
   end
 
-  def merchants
-    CSV.foreach("./data/merchants.csv", headers: true) do |row|
-      # make each row into a CSV object
-      # like a zipped up header + values
-    end
+  def self.merchant_collection
+    MerchantCollection.new(@sales_information[:merchants])
   end
 
-
-  def self.from_csv(information)
+  def self.item_collection
+    ItemCollection.new(@sales_information[:items])
   end
 
 end
