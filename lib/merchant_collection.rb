@@ -10,7 +10,9 @@ class MerchantCollection
   def all
     merchants = []
     CSV.foreach(@merchants_csv, headers: true) do |row|
-      merchants << Merchant.new({:id =>row["id"].to_i, :name =>row["name"]})
+      id = row["id"].to_i
+      name = row["name"]
+      merchants << Merchant.new({:id => id, :name => name})
     end
     merchants
   end

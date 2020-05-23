@@ -9,7 +9,12 @@ class ItemCollection
   def all
     items = []
     CSV.foreach(@items_csv, headers: true) do |row|
-      items << Item.new({:id =>row["id"].to_i, :name =>row["name"], :description => row["description"], :unit_price => row["unit_price"].to_i, :merchant_id => row["merchant_id"].to_i})
+      id = row["id"].to_i
+      name = row["name"]
+      description = row["description"]
+      unit_price = row["unit_price"].to_i
+      merchant_id = row["merchant_id"].to_i
+      items << Item.new({:id => id, :name => name, :description => description, :unit_price => unit_price, :merchant_id => merchant_id})
     end
     items
   end

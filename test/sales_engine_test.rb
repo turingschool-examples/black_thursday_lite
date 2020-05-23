@@ -6,7 +6,8 @@ require "minitest/pride"
 class SalesEngineTest < Minitest::Test
 
   def setup
-    @sales_engine = SalesEngine.from_csv({:items => "./util/items.csv", :merchants => "./util/merchants.csv"})
+    @sales_engine = SalesEngine.from_csv({:items => "./util/items.csv",
+                                      :merchants => "./util/merchants.csv"})
   end
 
   def test_it_exists_as_a_class #???
