@@ -19,8 +19,8 @@ class ItemCollectionTest < MiniTest::Test
   def test_it_can_find_all_items
     items = @item_collection.all
 
-    assert_instance_of Array, item
-    assert_equal 4, item.count
+    assert_instance_of Array, items
+    assert_equal 34, items.count
     assert_equal true, items.all? { |item| item.class == Item }
   end
 end
