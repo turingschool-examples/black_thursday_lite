@@ -1,5 +1,7 @@
 ## Black Thursday Lite
 
+[**Gaby's Process Gist**](https://gist.github.com/gabichuelas/7283630a2643a787569620faaafd142b)
+
 A business is only as smart as its data. Let's build a system to manage our data and execute business intelligence queries against the data from a typical e-commerce business.
 
 Project Overview
