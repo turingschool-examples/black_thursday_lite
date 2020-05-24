@@ -26,7 +26,6 @@ class SalesEngineTest < MiniTest::Test
   def test_it_can_read_merchants
     # skip
     assert_instance_of Array, @sales_engine.merchants
-    # assert_equal true, sales_engine.all? |merchant|
     # ...
     # end
   end
