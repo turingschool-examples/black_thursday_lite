@@ -1,6 +1,21 @@
+require 'csv'
+
 class SalesEngine
-  def from_csv(info_hash)
-    @items = info_hash[:items]
-    @merchants = info_hash[:merchants]
+  attr_reader :info_hash
+
+  def initialize(info_hash)
+    @info_hash = info_hash
+  end
+
+  def self.from_csv(info_hash)
+    SalesEngine.new(info_hash)
+  end
+
+  def items
+    CSV.read(info_hash[:items])
+  end
+
+  def merchants
+    CSV.read(info_hash[:merchants])
   end
 end
