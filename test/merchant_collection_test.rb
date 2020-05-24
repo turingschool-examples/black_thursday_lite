@@ -30,4 +30,12 @@ class MerchantCollectionTest < MiniTest::Test
     assert_instance_of Merchant, merchant
     assert_equal "Shopin1901", merchant.name
   end
+
+  def test_it_can_create_a_new_merchant
+    skip
+    @merchant_collection.create({name: 'Monster Merchant'})
+
+    
+    # assert_equal 8,
+  end
 end

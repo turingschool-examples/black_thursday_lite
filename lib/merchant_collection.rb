@@ -23,4 +23,14 @@ class MerchantCollection
       return merchant if merchant.id == id_number
     end
   end
+
+  def create(merchant_info)
+    new_id = rand.to_s[2..9]
+    until find(id) == nil
+      id = rand.to_s[2..9]
+    end
+    merchant_info[:id] = new_id
+    new_merchant = Merchant.new
+    all_merchants = all << new_merchant
+  end
 end
