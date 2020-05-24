@@ -11,9 +11,16 @@ class MerchantCollection
   def all
     all_merchants = []
     CSV.read(merchant_file, headers: true).each do |merchant|
-      all_merchants << merchant
-      # require "pry"; binding.pry
+      merchant_hash = {id: merchant["id"], name: merchant["name"]}
+      all_merchants << Merchant.new(merchant_hash)
     end
     all_merchants
+  end
+
+  def find(id_number)
+    merchants = all
+    merchants.each do |merchant|
+      return merchant if merchant.id == id_number
+    end
   end
 end
