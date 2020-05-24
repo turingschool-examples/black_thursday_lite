@@ -1,4 +1,5 @@
 require './lib/merchant_collection'
+require './lib/item_collection'
 require 'csv'
 
 class SalesEngine
@@ -13,7 +14,8 @@ class SalesEngine
   end
 
   def items
-    CSV.read(info_hash[:items])
+    items_list = ItemCollection.new(info_hash[:items])
+    items_list.all
   end
 
   def merchants

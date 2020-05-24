@@ -18,15 +18,10 @@ class SalesEngineTest < MiniTest::Test
   def test_it_can_read_items
     # skip
     assert_instance_of Array, @sales_engine.items
-    # assert_equal true, sales_engine.all? |item|
-    # ...
-    # end
   end
 
   def test_it_can_read_merchants
     # skip
     assert_instance_of Array, @sales_engine.merchants
-    # ...
-    # end
   end
 end

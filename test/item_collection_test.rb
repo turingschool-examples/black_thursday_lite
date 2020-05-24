@@ -23,4 +23,12 @@ class ItemCollectionTest < MiniTest::Test
     assert_equal 34, items.count
     assert_equal true, items.all? { |item| item.class == Item }
   end
+
+  def test_it_can_find_items_by_merchant_id
+    items = @item_collection.where("12334395")
+
+    assert_instance_of Array, items
+    assert_equal ["Grande toile", "Moyenne toile"], items.map {|item| item.name}
+    assert_equal 2, items.count
+  end
 end

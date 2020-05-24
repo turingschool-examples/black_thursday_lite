@@ -17,4 +17,9 @@ class ItemCollection
     all_items
   end
 
+  def where(merchant_id_input)
+    all.find_all do |item|
+      item.merchant_id == merchant_id_input
+    end
+  end
 end
