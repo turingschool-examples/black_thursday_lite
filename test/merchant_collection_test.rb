@@ -4,11 +4,12 @@ require './lib/merchant'
 require './lib/merchant_collection'
 # do i always start with non-csv data to test basics and then transition to pulling from csv?
 # at what point do i start testing from the full csv file?
+# strategy for deciding which sample lines to use?
 
 class MerchantCollectionTest < Minitest::Test
   def setup
-    @merchant_1 = Merchant.new({:id => 12334105, :name => "Shopin1901"})
-    @merchant_2 = Merchant.new({:id => 12334112, :name => "Candisart"})
+    @merchant_1 = Merchant.new({:id => 12334185, :name => "Madewithgitterxx"})
+    @merchant_2 = Merchant.new({:id => 12334817, :name => "PlusEtsy"})
     @merchants = [@merchant_1, @merchant_2]
     @merchant_collection = MerchantCollection.new(@merchants)
   end
@@ -22,6 +23,6 @@ class MerchantCollectionTest < Minitest::Test
   end
 
   def test_it_can_find_a_merchant_by_id
-    assert_equal @merchant_1, @merchant_collection.find(12334105)
+    assert_equal @merchant_1, @merchant_collection.find(12334185)
   end
 end
