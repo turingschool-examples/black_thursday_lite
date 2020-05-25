@@ -8,4 +8,4 @@ class Merchant
 
   end
 
-end 
+end
