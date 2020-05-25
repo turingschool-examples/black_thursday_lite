@@ -11,7 +11,6 @@ class MerchantCollection
   end
 
   def find(id)
-    binding.pry
 
   end
 end
