@@ -25,6 +25,7 @@ class MerchantCollection
   end
 
   def create(merchant_info)
+    # doesn't work correctly yet
     new_id = rand.to_s[2..9]
     # fix new_id loop
     merchant_info[:id] = new_id
