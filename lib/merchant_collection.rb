@@ -30,4 +30,11 @@ class MerchantCollection
     merchant_info[:id] = new_id
     new_merchant = Merchant.new(merchant_info)
   end
+
+  def update(merchant_info)
+    merchant_id = merchant_info[:id]
+    merchant_name = merchant_info[:name]
+    merchant = find(merchant_id)
+    merchant.name = merchant_name
+  end
 end

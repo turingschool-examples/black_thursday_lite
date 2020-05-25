@@ -4,4 +4,8 @@ class Merchant
     @id = info_hash[:id]
     @name = info_hash[:name]
   end
+
+  def name=(name)
+    @name = name
+  end
 end
