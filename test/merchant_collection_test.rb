@@ -2,6 +2,8 @@ require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/merchant'
 require './lib/merchant_collection'
+# do i always start with non-csv data to test basics and then transition to pulling from csv?
+# at what point do i start testing from the full csv file?
 
 class MerchantCollectionTest < Minitest::Test
   def setup
