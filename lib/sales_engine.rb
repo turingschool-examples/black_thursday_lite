@@ -1,12 +1,19 @@
+require "./lib/merchant_collection"
+require "./lib/item_collection"
 
-class Sales_engine
+class SalesEngine
 
-  def initialize sales_engine = SalesEngine.from_csv({
-    :items     => "./data/items.csv",
-    :merchants => "./data/merchants.csv",
-  })
+  def self.from_csv(sales_information)
+    @sales_information = sales_information
+    self
   end
 
-sales_engine.item_collection
+  def self.merchant_collection
+    MerchantCollection.new(@sales_information[:merchants])
+  end
+
+  def self.item_collection
+    ItemCollection.new(@sales_information[:items])
+  end
 
 end
