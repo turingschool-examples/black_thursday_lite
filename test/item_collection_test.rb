@@ -18,7 +18,6 @@ class ItemCollectionTest < Minitest::Test
     assert items.all? { |item| item.class == Item }
   end
 
-
   def test_it_can_look_up_items_by_merchant_id
     assert_equal [], @item_collection.where(42)
 
@@ -27,17 +26,23 @@ class ItemCollectionTest < Minitest::Test
     assert_equal true, merchant_3_items.all? { |item| item.class == Item }
     assert_equal 1, merchant_3_items.length
 
-
     merchant_2_items = @item_collection.where(12334185)
     assert_instance_of Array, merchant_2_items
     assert_equal 3, merchant_2_items.length
     assert_equal true, merchant_2_items.all? { |item| item.class == Item }
 
-
     merchant_1_items = @item_collection.where(12334141)
     assert_instance_of Array, merchant_1_items
     assert_equal 1, merchant_1_items.length
     assert_equal true, merchant_1_items.all? { |item| item.class == Item }
+  end
+
+  def test_it_can_find_items_by_name
+    skip
+  end
+
+  def test_it_can_find_items_by_price
+    skip
   end
 
 end

@@ -20,7 +20,9 @@ class MerchantCollection
   end
 
   def find(search_id)
-    all.find { |merchant| merchant.id == search_id }
+    all.find do |merchant|
+      merchant.id == search_id
+    end
   end
 
   def create(new_merchant_information)
