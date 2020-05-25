@@ -1,5 +1,7 @@
-# require 'csv'
-# require 'pry'
+require 'csv'
+require './lib/merchant_collection'
+require './lib/item_collection'
+require 'pry'
 
 class SalesEngine
   attr_reader :merchants, :items
@@ -9,49 +11,24 @@ class SalesEngine
     items = data[:items]
     SalesEngine.new(merchants, items)
   end
-  
-sales_engine = SalesEngine.from_csv({
-  :items     => "./data/items.csv",
-  :merchants => "./data/merchants.csv",
-})
 
-merchant_collection = sales_engine.merchant_collection
-merchant = merchant_collection.find(34)
+  def initialize(merchants, items)
+    @merchants = merchants
+    @items = items
+  end
 
-merchants = merchant_collection.all
-
-#
-# class SalesEngine
-#   attr_reader :merchants, :items
-#
-#   def self.from_csv(data)
-#     merchants = data[:merchants]
-#     items = data[:items]
-#     SalesEngine.new(merchants, items)
-#   end
-#
-#   def initialize(merchants, items)
-#     @merchants = merchants
-#     @items = items
-#   end
-#
-#   def merchant_collection
-#     CSV.foreach(@merchants) do |row|
-#       @merchant_collection = row
-#     end
-#   end
-#
-#   def item_collection
-#     CSV.foreach(@items) do |row|
-#       @item_collection = row
-#     end
-#   end
-# end
+  def merchant_collection
+    CSV.foreach(@merchants) do |row|
+      @merchant_collection = row
+      p row
+    end
+  end
 
 
 
-# sales_engine = SalesEngine.from_csv({
-#   :items     => "./data/items.csv",
-#   :merchants => "./data/merchants.csv",
-# })
-# binding.pry
+  sales_engine = SalesEngine.from_csv({
+    :items     => "./data/items.csv",
+    :merchants => "./data/merchants.csv",
+  })
+  binding.pry
+end
