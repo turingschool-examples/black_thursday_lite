@@ -26,11 +26,8 @@ class MerchantCollection
 
   def create(merchant_info)
     new_id = rand.to_s[2..9]
-    until find(id) == nil
-      id = rand.to_s[2..9]
-    end
+    # fix new_id loop
     merchant_info[:id] = new_id
-    new_merchant = Merchant.new
-    all_merchants = all << new_merchant
+    new_merchant = Merchant.new(merchant_info)
   end
 end

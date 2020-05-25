@@ -32,10 +32,19 @@ class MerchantCollectionTest < MiniTest::Test
   end
 
   def test_it_can_create_a_new_merchant
-    skip
-    @merchant_collection.create({name: 'Monster Merchant'})
+    merchants = @merchant_collection.all
+    assert_equal 4, merchants.count
 
-    
-    # assert_equal 8,
+    merchants << @merchant_collection.create({name: 'Monster Merchant'})
+    assert_equal 5, merchants.count
+  end
+
+  def test_it_can_update_merchant_name
+    merchant = @merchant_collection.find("12334105")
+    assert_equal "Shopin1901", merchant.name
+
+    @merchant_collection.update({id: "12334105", name: 'Arba Watches'})
+    merchant = @merchant_collection.find("12334105")
+    assert_equal "Arba Watches", merchant.name
   end
 end
