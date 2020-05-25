@@ -32,9 +32,7 @@ class MerchantCollection
   end
 
   def update(merchant_info)
-    merchant_id = merchant_info[:id]
-    merchant_name = merchant_info[:name]
-    merchant = find(merchant_id)
-    merchant.name = merchant_name
+    find(merchant_info[:id]).name = merchant_info[:name]
+    require "pry"; binding.pry
   end
 end
