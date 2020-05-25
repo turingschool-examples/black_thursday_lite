@@ -1,4 +1,3 @@
-require "csv"
 require "./lib/sales_engine"
 require "minitest/autorun"
 require "minitest/pride"
@@ -14,16 +13,13 @@ class SalesEngineTest < Minitest::Test
     assert_instance_of SalesEngine, @sales_engine
   end
 
-  def test_it_knows_about_items
+  def test_it_knows_where_files_are
+    skip
     assert_equal "./data/items.csv", @sales_engine.items
-  end
-
-  def test_it_knows_about_merchants
     assert_equal "./data/merchants.csv", @sales_engine.merchants
   end
 
   def test_it_can_get_an_array_of_the_merchants
-    skip
     merchant_collection = @sales_engine.merchant_collection
     merchants = merchant_collection.all
 
@@ -32,7 +28,6 @@ class SalesEngineTest < Minitest::Test
   end
 
   def test_it_can_get_an_array_of_the_items
-    skip
     item_collection = @sales_engine.item_collection
     items = item_collection.all
 
