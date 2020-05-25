@@ -1,20 +1,38 @@
 require 'csv'
 require 'pry'
+require './lib/merchant'
+require './lib/merchantcollection'
 
 class SalesEngine
-  attr_reader :items, :merchants, :merchant_collection
-
-  def initialize(merchants, items)
-    @items = items
-    @merchants = merchants
-    @merchant_collection = []
-  end
+  attr_reader :items,
+              :merchants
 
   def self.from_csv(data)
-    merchants = data[:merchants]
-    items = data[:items]
-    SalesEngine.new(merchants, items)
+    @items = data[:items]
+    @merchants = data[:merchants]
+
+    SalesEngine.new(@items, @merchants)
   end
 
+  def initialize(items, merchants)
+    @items = items
+    @merchants = merchants
+  end
+
+  def all_merchants
+    @all_merchants = []
+    CSV.foreach(@merchants, headers: true) do |row|
+      @id = row["id"].to_i
+      @name = row["name"]
+      merchant_data = {:id => @id, :name => @name}
+      @all_merchants << Merchant.new(merchant_data)
+    end
+    @all_merchants
+  end
+
+  def merchant_collection
+    self.all_merchants
+    MerchantCollection.new(@all_merchants)
+  end
 
 end
