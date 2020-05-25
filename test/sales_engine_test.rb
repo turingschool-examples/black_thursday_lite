@@ -15,7 +15,6 @@ class SalesEngineTest < Minitest::Test
   end
 
   def test_it_has_attribute
-    skip
     sales_engine = SalesEngine.new({
       :items => "./data/items.csv",
       :merchants => "./data/merchants.csv"
@@ -23,6 +22,14 @@ class SalesEngineTest < Minitest::Test
 
     assert_equal "./data/items.csv", sales_engine.items
     assert_equal "./data/merchants.csv", sales_engine.merchants
+  end
+
+  def test_it_can_find_merchant_collection
+    sales_engine = SalesEngine.new({
+      :items => "./data/items.csv",
+      :merchants => "./data/merchants.csv"
+      })
+
   end
 
 end
