@@ -3,17 +3,21 @@ require "./lib/item_collection"
 
 class SalesEngine
 
+  def initialize(sales_information)
+    @items = sales_information[:items]
+    @merchants = sales_information[:merchants]
+  end
+
   def self.from_csv(sales_information)
-    @sales_information = sales_information
-    self
+    self.new(sales_information)
   end
 
-  def self.merchant_collection
-    MerchantCollection.new(@sales_information[:merchants])
+  def merchant_collection
+    MerchantCollection.new(@merchants)
   end
 
-  def self.item_collection
-    ItemCollection.new(@sales_information[:items])
+  def item_collection
+    ItemCollection.new(@items)
   end
 
 end

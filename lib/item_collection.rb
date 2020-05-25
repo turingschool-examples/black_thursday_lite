@@ -20,7 +20,7 @@ class ItemCollection
   end
 
   def where(search_merchant_id)
-    all.filter do |item|
+    all.find_all do |item|
       item.merchant_id == search_merchant_id
     end
   end
