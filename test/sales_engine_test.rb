@@ -10,6 +10,7 @@ class SalesEngineTest < Minitest::Test
           :items     => "./data/items.csv",
           :merchants => "./data/merchants.csv",
         })
+        # should this be SalesEngine.new ?
   end
 
   def test_it_exists
