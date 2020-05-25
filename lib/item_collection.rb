@@ -2,10 +2,6 @@ require 'csv'
 
 class ItemCollection
 
-  def initialize()
-
-  end
-
   def all
     item_collection = []
     CSV.foreach(info_params[:items], headers: true, header_converters: :symbol) do |row|
@@ -21,6 +17,8 @@ class ItemCollection
   end
 
   def where(mercahnt_id)
-
+    all.select do |item|
+      item.merchant_id
+    end
   end
 end
