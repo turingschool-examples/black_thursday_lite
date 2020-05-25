@@ -17,4 +17,9 @@ class MerchantTest < Minitest::Test
     assert_equal "Turing School", @merchant.name
   end
 
+  def test_it_can_update_its_name
+    @merchant.update_name("Turing School of Software and Design")
+    assert_equal "Turing School of Software and Design", @merchant.name
+  end
+
 end
