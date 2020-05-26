@@ -32,6 +32,4 @@ class ItemTest < Minitest::Test
     assert_equal 2, item.merchant_id
   end
 
-
-
 end
