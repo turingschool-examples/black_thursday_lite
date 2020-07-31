@@ -1,6 +1,6 @@
 ## Black Thursday Lite
-**Note:** I completely forgot that I had my own forked repo for this exploration/project, and so I purposefully did not do any commits throughout working on it. I did not realize my mistake until I went to submit the pull request. Super sorry!!!
-[**Gaby's Process Gist**](https://gist.github.com/gabichuelas/7283630a2643a787569620faaafd142b)
+
+[**Process Gist**](https://gist.github.com/gabichuelas/7283630a2643a787569620faaafd142b)
 
 A business is only as smart as its data. Let's build a system to manage our data and execute business intelligence queries against the data from a typical e-commerce business.
 
