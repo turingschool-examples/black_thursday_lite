@@ -1,24 +1,17 @@
 ## Black Thursday Lite
 
-A business is only as smart as its data. Let's build a system to manage our data and execute business intelligence queries against the data from a typical e-commerce business.
+**Context:** Working with understanding the underlying functionality behind an ORM for the first time.
+[**My Process / Documentation Gist**](https://gist.github.com/gabichuelas/7283630a2643a787569620faaafd142b)
 
 Project Overview
 -----------------
+A business is only as smart as its data. Let's build a system to manage our data and execute business intelligence queries against the data from a typical e-commerce business.
 
 ### Learning Goals
 
 *   Use tests to drive both the design and implementation of code
 *   Decompose a large application into components
 *   Design a solution that is functional, readable, maintainable, and testable
-
-### Setup and Submission
-
-1.  Fork this repository
-1.  Clone _your_ forked repository
-1.  Complete as much of the activity below as you have time for during this exploration
-1.  Push your code to the master branch of your repository
-1.  Submit a Pull Request back to the turingschool-examples repository (this repo)
-
 
 ### Key Concepts
 
@@ -28,7 +21,7 @@ From a technical perspective, this project will emphasize:
 *   Database Operations
 *   Encapsulating Responsibilities
 
-## Building Your SalesEngine
+## Building Your SalesEngine / Project Specs + Direction
 
 ### Data Access Layer (DAL) and Object Relational Mapping (ORM)
 
@@ -167,10 +160,3 @@ all_fifty_cent_items = item_collection.where({price: 50})
 ```
 
 With this new implementation of `where`, you should be able to send a key/value pair into the method to return all items where the attribute(key) matches the value given.
-
-## Wrap Up
-
-You have now created your very own DAL/ORM!!  Going into Mod2, you will start using the ActiveRecord ORM (much more powerful that the one we created today).  If you are interested in learning more, take a look at the resources below:
-
-* [What is an ORM](https://blog.bitsrc.io/what-is-an-orm-and-why-you-should-use-it-b2b6f75f5e2a)
-* [ActiveRecord Docs](https://guides.rubyonrails.org/active_record_basics.html)
