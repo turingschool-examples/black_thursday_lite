@@ -169,10 +169,3 @@ all_fifty_cent_items = item_collection.where({price: 50})
 ```
 
 With this new implementation of `where`, you should be able to send a key/value pair into the method to return all items where the attribute(key) matches the value given.
-
-## Wrap Up
-
-You have now created your very own DAL/ORM!!  Going into Mod2, you will start using the ActiveRecord ORM (much more powerful that the one we created today).  If you are interested in learning more, take a look at the resources below:
-
-* [What is an ORM](https://blog.bitsrc.io/what-is-an-orm-and-why-you-should-use-it-b2b6f75f5e2a)
-* [ActiveRecord Docs](https://guides.rubyonrails.org/active_record_basics.html)
