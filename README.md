@@ -16,7 +16,7 @@ Project Overview
 1.  Fork this repository
 1.  Clone _your_ forked repository
 1.  Complete as much of the activity below as you have time for during this exploration
-1.  Push your code to the master branch of your repository
+1.  Push your code to the main branch of your repository
 1.  Submit a Pull Request back to the turingschool-examples repository (this repo)
 
 
@@ -32,13 +32,16 @@ From a technical perspective, this project will emphasize:
 
 ### Data Access Layer (DAL) and Object Relational Mapping (ORM)
 
-The idea of a *DAL* is to write classes which load and parse your raw data, allowing your system to then interact with rich ruby objects to do more complex analysis.
+The idea of a *DAL* is to write classes which load and parse your raw data, allowing your system to then interact with rich Ruby objects to do more complex analysis.
 
-In many applications, including the Rails projects you will build in Module 2, the DAL is incorporated in an ORM that works with a database to load and parse data into rich ruby objects.
+In many applications, including the Rails projects you will build in Module 2, the DAL is incorporated in an ORM (object-relational mapping tool) that works with a database to load and parse data into rich Ruby objects.
 
-In this exercise, we'll build the beginnings of a DAL with some ORM-like functionality by building the classes described below:
+In this exercise, we'll build the beginnings of a DAL with some ORM-like functionality by building the classes described below.
 
-In order to interact with our DAL, let's tie everything together with one common root, a `SalesEngine` instance:
+
+### `SalesEngine`
+
+In order to interact with our DAL, let's start with one common root, a `SalesEngine` instance:
 
 ```ruby
 sales_engine = SalesEngine.from_csv({
@@ -49,8 +52,10 @@ sales_engine = SalesEngine.from_csv({
 
 From there we can find the child instances:
 
-*   `item_collection` returns an array of all items (This method will probably (definitely) end up referencing an instance of `ItemCollection`)
-*   `merchant_collection` returns an array of all merchants (This method will probably (definitely) end up referencing an instance of `MerchantCollection`)
+*   `item_collection` returns an array of all items (This method will end up referencing an instance of `ItemCollection`)
+*   `merchant_collection` returns an array of all merchants (This method will end up referencing an instance of `MerchantCollection`)
+
+Note: Some of the tests for the `SalesEngine` class have been written for you, but likely need expanded to make the tests more robust. 
 
 
 ### `Merchant`
@@ -142,7 +147,7 @@ Up to this point, we have only asked for information, but in the real world, we 
 
 * `create({name: 'Monster Merchant'})` - This should create a new instance of Merchant with a unique ID, and store it in our Merchant Collection.
 
-* `update({id: 34, name: 'New Merchant Name'})` - this should change the name of the Merchant instance to the given value.
+* `update({id: 34, name: 'New Merchant Name'})` - This should change the name of the Merchant instance with the matching id to the given value.
 
 * `destroy(34)` - This should remove the merchant with the given id from the Merchant Collection.
 
@@ -170,7 +175,7 @@ With this new implementation of `where`, you should be able to send a key/value 
 
 ## Wrap Up
 
-You have now created your very own DAL/ORM!!  Going into Mod2, you will start using the ActiveRecord ORM (much more powerful that the one we created today).  If you are interested in learning more, take a look at the resources below:
+You have now created your very own DAL/ORM!!  Going into Mod 2, you will start using the ActiveRecord ORM (much more powerful that the one we created today).  If you are interested in learning more, take a look at the resources below:
 
 * [What is an ORM](https://blog.bitsrc.io/what-is-an-orm-and-why-you-should-use-it-b2b6f75f5e2a)
 * [ActiveRecord Docs](https://guides.rubyonrails.org/active_record_basics.html)
